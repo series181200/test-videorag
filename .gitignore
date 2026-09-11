@@ -1,0 +1,12 @@
+# Python 编译缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 日志与临时文件
+*.log
+log.txt
+
+# 个人 IDE 配置
+.vscode/
+.idea/
