@@ -1,0 +1,14 @@
+{
+  "name": "vimo-communication-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --config vitest.config.ts",
+    "test:verbose": "vitest run --config vitest.config.ts --reporter=verbose",
+    "test:report": "vitest run --config vitest.config.ts --reporter=junit --outputFile=test_communication/report.xml"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vitest": "^2.1.9"
+  }
+}
