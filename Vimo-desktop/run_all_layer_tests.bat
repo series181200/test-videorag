@@ -1,10 +1,11 @@
 @echo off
 setlocal
 chcp 65001 >nul
-cd /d "%~dp0\.."
+cd /d "%~dp0"
 
 if defined VIMO_TEST_PYTHON set "PYTHON_EXE=%VIMO_TEST_PYTHON%"
 if not defined PYTHON_EXE if defined CONDA_PREFIX if exist "%CONDA_PREFIX%\python.exe" set "PYTHON_EXE=%CONDA_PREFIX%\python.exe"
+
 if not defined PYTHON_EXE (
     where python >nul 2>nul
     if not errorlevel 1 (
@@ -21,24 +22,27 @@ if not defined PYTHON_EXE (
 )
 
 if not defined PYTHON_EXE (
-    echo [NG] 未找到 Python，请通过 VIMO_TEST_PYTHON 指定 python.exe。
+    echo [NG] 未找到 Python。请安装 Python，或通过 VIMO_TEST_PYTHON 指定 python.exe。
+    echo.
     pause
     exit /b 2
 )
 
-echo ========================================
-echo VideoRAG API pytest 测试
-echo ========================================
+echo ================================================================
+echo Vimo 四层统一测试
+echo ================================================================
 echo.
 
-"%PYTHON_EXE%" %PYTHON_ARGS% -m pytest -c test_videorag_api\pytest.ini test_videorag_api\tests -v
+"%PYTHON_EXE%" %PYTHON_ARGS% run_all_layer_tests.py
 set "FINAL_RESULT=%ERRORLEVEL%"
 
 echo.
 if "%FINAL_RESULT%"=="0" (
-    echo [通过] 全部测试通过。
+    echo [OK] 全部测试通过
 ) else (
-    echo [失败] 测试发现业务缺陷，请查看上方报告。
+    echo [NG] 测试中发现失败项，请查看上方逐条结果
 )
+
+echo.
 pause
 exit /b %FINAL_RESULT%

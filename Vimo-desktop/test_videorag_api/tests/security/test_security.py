@@ -1,21 +1,24 @@
-"""Security regression tests."""
+"""Security regression tests implemented with pytest."""
 
-import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock
 
 from tests.support import api_module
 
 api = api_module()
 
 
-class TestSecurity(unittest.TestCase):
-    def test_global_config_does_not_log_api_keys(self):
-        manager = api.VideoRAGProcessManager()
-        with patch.object(api, "log_to_file") as log:
-            manager.set_global_config({
-                "openai_api_key": "openai-secret",
-                "ali_dashscope_api_key": "dashscope-secret",
-            })
-        logged_text = " ".join(str(call) for call in log.call_args_list)
-        self.assertNotIn("openai-secret", logged_text)
-        self.assertNotIn("dashscope-secret", logged_text)
+def test_global_config_does_not_log_api_keys(monkeypatch):
+    manager = api.VideoRAGProcessManager()
+    log = MagicMock()
+    monkeypatch.setattr(api, "log_to_file", log)
+
+    manager.set_global_config(
+        {
+            "openai_api_key": "openai-secret",
+            "ali_dashscope_api_key": "dashscope-secret",
+        }
+    )
+
+    logged_text = " ".join(str(call) for call in log.call_args_list)
+    assert "openai-secret" not in logged_text
+    assert "dashscope-secret" not in logged_text

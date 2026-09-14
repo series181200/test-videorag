@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 """运行按五类测试方法分类的 VideoRAG API 测试。"""
 
 from collections import defaultdict
 import sys
 import time
 import unittest
+=======
+"""Run the 18 VideoRAG API tests through pytest."""
+
+from __future__ import annotations
+
+>>>>>>> 6c9a02d (最终脚本编写)
 from pathlib import Path
+
+import pytest
 
 ROOT = Path(__file__).resolve().parent
 
@@ -127,4 +136,4 @@ def run() -> unittest.TestResult:
 
 
 if __name__ == "__main__":
-    sys.exit(0 if run().wasSuccessful() else 1)
+    raise SystemExit(run())
