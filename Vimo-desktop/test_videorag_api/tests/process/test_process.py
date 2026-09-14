@@ -41,7 +41,10 @@ class TestProcessFunctions(unittest.TestCase):
             "chat-01_query": {"process": query_process, "type": "query_processing"},
         }
         manager.terminate_process("chat-01")
-        self.assertFalse(manager.running_processes)
+        self.assertFalse(
+            manager.running_processes,
+            f"终止会话后仍残留进程: {list(manager.running_processes)}",
+        )
         index_process.terminate.assert_called_once()
         query_process.terminate.assert_called_once()
 

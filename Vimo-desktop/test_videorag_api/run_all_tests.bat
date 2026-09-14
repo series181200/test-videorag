@@ -22,9 +22,9 @@ echo.
 set "FINAL_RESULT=%ERRORLEVEL%"
 echo.
 if "%FINAL_RESULT%"=="0" (
-    echo [通过] 18 项测试全部通过。
+    echo [通过] 全部测试通过。
 ) else (
-    echo [失败] 18 项测试中发现业务缺陷，请查看上方报告。
+    echo [失败] 测试发现业务缺陷，请查看上方报告。
 )
 pause
 exit /b %FINAL_RESULT%
