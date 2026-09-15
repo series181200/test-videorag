@@ -1,6 +1,7 @@
 """Shared test setup and helpers."""
 
 import json
+import importlib.util
 import os
 import sys
 from pathlib import Path
@@ -21,6 +22,16 @@ def prepare_test_environment() -> None:
 
 def api_module():
     prepare_test_environment()
+    if os.environ.get("VIMO_TEST_PRODUCTION_API") == "1":
+        production_api = Path(__file__).resolve().parents[2] / "python_backend" / "videorag_api.py"
+        spec = importlib.util.spec_from_file_location("videorag_api", production_api)
+        if spec is None or spec.loader is None:
+            raise ImportError(f"Unable to load production API module: {production_api}")
+        module = importlib.util.module_from_spec(spec)
+        sys.modules["videorag_api"] = module
+        spec.loader.exec_module(module)
+        return module
+
     api_directory = str(Path(__file__).resolve().parents[1])
     if api_directory not in sys.path:
         sys.path.insert(0, api_directory)
