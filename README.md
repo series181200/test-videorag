@@ -20,11 +20,11 @@
 
 ## 👥 Course Project Team
 
+
 | Member | Main Responsibilities                        |
 | ------ | -------------------------------------------- |
-| 李科橙    | Software testing, development, documentation |
-| 丁锦威    | Software testing, development, documentation |
-
+| 李科橙 | Software testing, development, documentation |
+| 丁锦威 | Software testing, development, documentation |
 
 > Team members should configure their own Git `user.name` and `user.email` before committing so that individual contributions can be identified through the Git history.
 
@@ -77,6 +77,67 @@ Subsequent commits represent modifications and contributions made during this co
 
 ---
 
+
+# Vimo 四层统一测试
+
+统一入口会依次执行：
+
+1. `test_renderer`：全部 Vitest + jsdom 前端用例。
+2. `test_communication/filtered`：筛选后的 Vitest 通信用例。
+3. `test_videorag_api`：全部 pytest API 用例。
+4. `test_videorag_algorithm/filtered`：筛选后的 pytest 算法用例。
+
+每条用例在终端输出测试层级、测试接口或函数、`OK/NG` 和发现的问题。某一层失败后，后续层仍会继续运行。
+
+四个测试层只使用两种框架：TypeScript 使用 Vitest，Python 使用 pytest。
+
+## 首次安装依赖
+
+在 `Vimo-desktop` 根目录执行：
+
+```powershell
+python -m pip install -r requirements-unified-tests.txt
+npm.cmd install --prefix test_renderer
+npm.cmd install --prefix test_communication
+```
+
+如果终端无法直接识别 `python`，请把上面第一条中的 `python` 换成实际解释器路径；例如本机可用
+`C:\ProgramData\miniconda3\python.exe`。批处理启动时会依次尝试当前 Conda 环境、PATH 中的
+Python、该 Miniconda 路径和 Windows `py` 启动器。
+
+## 一键运行
+
+双击：
+
+```text
+run_all_layer_tests.bat
+```
+
+或者在终端执行：
+
+```powershell
+python run_all_layer_tests.py
+```
+
+如果需要指定 Conda 环境，可以先设置：
+
+```powershell
+$env:VIMO_TEST_PYTHON = "D:\develop\conda_envs\your_env\python.exe"
+.\run_all_layer_tests.bat
+```
+
+renderer 测试直接加载 React 源码并在 jsdom 中执行，不再依赖 Playwright、Chromium 或根目录的 pnpm `node_modules`。框架或 Python 依赖缺失时，该层用例会显示为 NG，并明确标记为测试环境问题而不是业务漏洞。
+
+## 分层单独运行
+
+```powershell
+test_renderer\node_modules\.bin\vitest.cmd run --config test_renderer\vitest.config.ts
+test_communication\node_modules\.bin\vitest.cmd run --config test_communication\filtered\vitest.config.ts
+python -m pytest -c test_videorag_api\pytest.ini test_videorag_api\tests
+python -m pytest -c test_videorag_algorithm\filtered\pytest.ini test_videorag_algorithm\filtered
+```
+
+
 ## 📜 License and Attribution
 
 This project is derived from:
@@ -105,39 +166,39 @@ If this repository or the original VideoRAG project is used in academic work, pl
 
 <div align="center">
 
-  <picture>
+<picture>
     <img src="cover.png" width="80%" style="border: none; box-shadow: none;" alt="Vimo: Chat with Your Videos">
   </picture>
 
-  <h1>
+<h1>
     <strong>VideoRAG: Chat with Your Videos</strong> • <strong>Vimo Desktop</strong>
   </h1>
 
-  <a href="https://trendshift.io/repositories/16146" target="_blank">
+<a href="https://trendshift.io/repositories/16146" target="_blank">
     <img src="https://trendshift.io/api/badge/repositories/16146" alt="HKUDS/VideoRAG | Trendshift" width="250" height="55"/>
   </a>
 
-  <a href="https://arxiv.org/abs/2502.01549">
+<a href="https://arxiv.org/abs/2502.01549">
     <img src="https://img.shields.io/badge/arXiv-2502.01549-b31b1b">
   </a>
 
-  <a href="https://github.com/HKUDS/VideoRAG/issues/1">
+<a href="https://github.com/HKUDS/VideoRAG/issues/1">
     <img src="https://img.shields.io/badge/群聊-wechat/feishu-green">
   </a>
 
-  <a href="https://discord.gg/ZzU55kz3">
+<a href="https://discord.gg/ZzU55kz3">
     <img src="https://discordapp.com/api/guilds/1296348098003734629/widget.png?style=shield">
   </a>
 
-  <a href="https://www.youtube.com/watch?v=D5vsxcp4QZI">
+<a href="https://www.youtube.com/watch?v=D5vsxcp4QZI">
     <img src="https://img.shields.io/badge/YouTube-Watch%20Demo-red?style=flat&logo=youtube">
   </a>
 
-  <a href="https://learnopencv.com/videorag-long-context-video-comprehension/">
+<a href="https://learnopencv.com/videorag-long-context-video-comprehension/">
     <img src="https://img.shields.io/badge/Blog-LearnOpenCV-blue">
   </a>
 
-  <img src="https://img.shields.io/badge/platform-macOS%20|%20Windows%20|%20Linux-lightgrey.svg">
+<img src="https://img.shields.io/badge/platform-macOS%20|%20Windows%20|%20Linux-lightgrey.svg">
 
 **🎬 Intelligent Video Conversations | Powered by Advanced AI | Extreme Long-Context Processing**
 
@@ -155,11 +216,11 @@ See how Vimo transforms video interaction with intelligent conversations and dee
 
 <div align="center">
 
-  <a href="https://www.youtube.com/watch?v=D5vsxcp4QZI">
+<a href="https://www.youtube.com/watch?v=D5vsxcp4QZI">
     <img src="https://img.youtube.com/vi/D5vsxcp4QZI/maxresdefault.jpg" width="80%" alt="Vimo Introduction Video">
   </a>
 
-  <p><em>👆 Click to watch the Vimo demo video</em></p>
+<p><em>👆 Click to watch the Vimo demo video</em></p>
 
 </div>
 
@@ -221,7 +282,7 @@ See how Vimo transforms video interaction with intelligent conversations and dee
 
 <div align="left">
 
-  <a href="https://github.com/HKUDS/Vimo/releases">
+<a href="https://github.com/HKUDS/Vimo/releases">
     <img src="https://img.shields.io/badge/Coming%20Soon-Mac%20Download-007ACC?style=for-the-badge&logo=apple&logoColor=white" alt="Coming Soon - Mac Release" height="50">
   </a>
 
@@ -265,11 +326,12 @@ The original VideoRAG project reports significant improvements in long-context v
 
 <div align="center">
 
-  <img src="Vimo-desktop/figures/table.png" width="80%" alt="Performance Comparison" />
+<img src="Vimo-desktop/figures/table.png" width="80%" alt="Performance Comparison" />
 
 </div>
 
 The original project also evaluates VideoRAG's QA performance on the Video-MME long video track:
+
 
 | Video-MME Long Video | MiniCPM-o w/o subs | MiniCPM-o w/ subs | MiniCPM-V w/o subs | MiniCPM-V w/ subs |  VideoRAG |
 | -------------------- | -----------------: | ----------------: | -----------------: | ----------------: | --------: |
@@ -289,6 +351,7 @@ See [VideoRAG-algorithm](VideoRAG-algorithm) for detailed development setup incl
 ## 🧪 LongerVideos Benchmark
 
 The original VideoRAG project created the LongerVideos benchmark to evaluate long-context video understanding:
+
 
 | Video Type        | #Collections | #Videos | #Queries | Avg. Duration |
 | ----------------- | -----------: | ------: | -------: | ------------: |
@@ -334,7 +397,6 @@ git pull --rebase origin main
 ```
 
 3. Make focused changes.
-
 4. Commit using clear messages, for example:
 
 ```bash
@@ -380,7 +442,7 @@ We sincerely thank the **VideoRAG@HKUDS team** and all upstream open-source cont
 
 <div align="center">
 
-  <sub>
+<sub>
     Course project maintained by 李科橙 and project team.<br/>
     Based on VideoRAG / Vimo by the VideoRAG@HKUDS team.
   </sub>
