@@ -1,0 +1,50 @@
+{
+  "startedAt": "2026-09-21T14:07:35.579Z",
+  "node": "v22.13.1",
+  "platform": "win32",
+  "vitest": "2.1.9",
+  "vitestPackage": "D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_communication\\node_modules\\vitest\\package.json",
+  "commit": "f2d43372d1565b2a381ee675829c70db7e243672",
+  "workingTree": "M Vimo-desktop/test_startup_configuration/api_key_validation.test.ts\n M Vimo-desktop/test_startup_configuration/configuration.test.ts\n M Vimo-desktop/test_startup_configuration/run_tests.cjs\n M Vimo-desktop/test_startup_configuration/startup.test.ts\n M Vimo-desktop/test_startup_configuration/support.ts\n D Vimo-desktop/test_video_query/python_support.py\n M Vimo-desktop/test_video_query/query_submission.test.tsx\n M Vimo-desktop/test_video_query/run_tests.py\n D Vimo-desktop/test_video_query/test_query_concurrency.py\n M Vimo-desktop/test_video_query/test_query_readiness.py\n D Vimo-desktop/test_video_query/test_query_recovery.py\n M Vimo-desktop/test_video_query/test_query_validation.py\n?? Vimo-desktop/test_video_query/results/2026-09-21T12-51-31-353174Z-29340/pytest-temp/\n?? Vimo-desktop/test_video_query/results/2026-09-21T12-53-07-136224Z-23140/pytest-temp/\n?? Vimo-desktop/test_video_query/results/2026-09-21T12-58-18-377183Z-29448/pytest-temp/",
+  "scope": "one representative functional sample per business ID; no fixed retry-count SLA",
+  "sources": [
+    {
+      "path": "src/main/handlers/settings.ts",
+      "sha256": "f82c78fcb07a941fd2c0a16817575fad8e6cceb66885d6a48c83ae6aeb24c401"
+    },
+    {
+      "path": "src/main/handlers/videorag-handlers.ts",
+      "sha256": "a485902540f9d108abb8fe039db3bc25711608420316fe77e9984c4597cc273f"
+    }
+  ],
+  "tests": [
+    {
+      "path": "api_key_validation.test.ts",
+      "sha256": "0e807eb252c129fb978122df5046ecbbb551470c0feb03ce5112622eebcf9caa"
+    },
+    {
+      "path": "configuration.test.ts",
+      "sha256": "e672ea6eecf363eaa84fd1a06ae73d4df53f61297588dd642f10e809b704b07d"
+    },
+    {
+      "path": "package.json",
+      "sha256": "e6c3c0a6141f666ec78b645158dfb479e3cc94f8857c025bbaa6afac33150d41"
+    },
+    {
+      "path": "run_tests.cjs",
+      "sha256": "8a89b5e54f2d670e00dadcdc1bb2c03890a1918f4f18d17bc16c1ff457c245a8"
+    },
+    {
+      "path": "startup.test.ts",
+      "sha256": "5e6f102b8cd7b3f0d71b3e6bc0d75d51c488b92b73d761662c447b9088416791"
+    },
+    {
+      "path": "support.ts",
+      "sha256": "0c612577a55fc7ab3ea779e569d350c3f7fe529151e680f8f834669cd5076ecb"
+    },
+    {
+      "path": "vitest.config.ts",
+      "sha256": "ee3c2aea0948cc8985e8b1663d28e2c1f8d5ae0b93cc47492070963b14bfcfe0"
+    }
+  ]
+}

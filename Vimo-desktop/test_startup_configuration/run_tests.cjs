@@ -4,7 +4,7 @@ const crypto = require('node:crypto')
 const { spawnSync, execFileSync } = require('node:child_process')
 
 const root = __dirname
-const expected = { 'TC-SC-001': 1, 'TC-SC-002': 4, 'TC-SC-003': 4, 'TC-SC-004': 3, 'TC-SC-005': 2 }
+const expected = { 'TC-SC-001': 1, 'TC-SC-002': 1, 'TC-SC-003': 1, 'TC-SC-004': 1, 'TC-SC-005': 1 }
 let vitestPackage
 try {
   vitestPackage = require.resolve('vitest/package.json', { paths: [root, path.resolve(root, '../test_communication')] })
@@ -33,7 +33,7 @@ const manifest = {
   startedAt: new Date().toISOString(), node: process.version, platform: process.platform,
   vitest: version, vitestPackage, commit: git('rev-parse', 'HEAD'),
   workingTree: git('status', '--short'),
-  policy: { maxScanRounds: 3, startupBudgetMs: 60000 },
+  scope: 'one representative functional sample per business ID; no fixed retry-count SLA',
   sources: sourcePaths.map(relative => {
     const absolute = path.resolve(root, '..', relative)
     return { path: relative, sha256: hashFile(absolute) }

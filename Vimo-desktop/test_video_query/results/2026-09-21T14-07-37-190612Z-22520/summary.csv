@@ -1,0 +1,5 @@
+﻿id,status,expected,passed,failed,blockedBeforeWorker
+TC-VQ-001,FAIL,1,0,1,0
+TC-VQ-002,FAIL,1,0,1,0
+TC-VQ-003,PASS,1,1,0,0
+TC-VQ-004,PASS,1,1,0,0

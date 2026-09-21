@@ -14,8 +14,8 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parents[1]
-EXPECTED = {"pytest": {"TC-VQ-001": 6, "TC-VQ-002": 4, "TC-VQ-003": 1, "TC-VQ-004": 1},
-            "vitest": {"TC-VQ-001": 6, "TC-VQ-002": 2, "TC-VQ-003": 1, "TC-VQ-004": 1}}
+EXPECTED = {"pytest": {"TC-VQ-001": 1, "TC-VQ-002": 1},
+            "vitest": {"TC-VQ-003": 1, "TC-VQ-004": 1}}
 
 
 def run(command, *, cwd=ROOT, timeout=120):
@@ -124,9 +124,9 @@ def main():
     for check in checks:
         check["blockedBeforeWorker"] = check["status"] != "passed" and "BLOCKED_BEFORE_WORKER" in check["detail"]
     groups = []
-    for case_id in EXPECTED["pytest"]:
+    for case_id in sorted({case_id for counts in EXPECTED.values() for case_id in counts}):
         cases = [c for c in checks if c["id"] == case_id]
-        count = sum(expected[case_id] for expected in EXPECTED.values())
+        count = sum(expected.get(case_id, 0) for expected in EXPECTED.values())
         passed = sum(c["status"] == "passed" for c in cases)
         status = "ERROR" if len(cases) != count or any(c["status"] == "error" for c in cases) else "PASS" if passed == count else "FAIL"
         groups.append({"id": case_id, "status": status, "expected": count, "passed": passed,

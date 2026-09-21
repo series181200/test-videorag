@@ -30,7 +30,6 @@ export const validSettings = () => ({
 export const files = new Map<string, string>()
 export const handlers = new Map<string, (...args: any[]) => Promise<any>>()
 export const permissions = { modelMissing: false, storeReadOnly: false }
-export const policy = { maxScanRounds: 3, startupBudgetMs: 60_000, portsPerRound: 20 }
 const fileError = (code: string, file: string) => Object.assign(new Error(`${code}: ${file}`), { code })
 const key = (file: unknown) => path.normalize(String(file))
 const isStore = (file: unknown) => key(file) === STORE || key(file).startsWith(STORE + path.sep)

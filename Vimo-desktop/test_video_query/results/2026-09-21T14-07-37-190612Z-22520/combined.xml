@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites><testsuite name="pytest" tests="2" failures="2" errors="0"><testcase classname="TC-VQ-002" name="test_TC_VQ_002_nonexistent_session_cannot_start_query"><failure>runtime = &lt;conftest.runtime.&lt;locals&gt;.Runtime object at 0x000001C05C6C6E70&gt;
+
+    def test_TC_VQ_002_nonexistent_session_cannot_start_query(runtime):
+        assert not runtime.directory.exists(), "Fixture must start without this session"
+        response = runtime.query("视频里讲了什么？")
+&gt;       assert {"client_error": 400 &lt;= response.status_code &lt; 500,
+                "success": response.get_json().get("success"),
+                "process_created": bool(runtime.processes),
+                "session_created": runtime.directory.exists()} == {
+                    "client_error": True, "success": False,
+                    "process_created": False, "session_created": False}
+E       AssertionError: assert {'client_erro...uccess': True} == {'client_erro...ccess': False}
+E         Differing items:
+E         {'session_created': True} != {'session_created': False}
+E         {'success': True} != {'success': False}
+E         {'process_created': True} != {'process_created': False}
+E         {'client_error': False} != {'client_error': True}
+E         Use -v to get more diff
+
+test_query_readiness.py:4: AssertionError</failure></testcase><testcase classname="TC-VQ-001" name="test_TC_VQ_001_whitespace_question_is_not_dispatched"><failure>runtime = &lt;conftest.runtime.&lt;locals&gt;.Runtime object at 0x000001C05DD16A80&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001C05B6EB500&gt;
+
+    def test_TC_VQ_001_whitespace_question_is_not_dispatched(runtime, monkeypatch):
+        runtime.prepare()
+        dispatch = MagicMock(return_value=True)
+        monkeypatch.setattr(runtime.manager, "start_query_processing", dispatch)
+        response = runtime.query("   ")
+        # Any reasonable client-error status is acceptable; exact wording is irrelevant.
+&gt;       assert {"client_error": 400 &lt;= response.status_code &lt; 500,
+                "success": response.get_json().get("success"),
+                "dispatched": dispatch.called} == {
+                    "client_error": True, "success": False, "dispatched": False}
+E       AssertionError: assert {'client_erro...uccess': True} == {'client_erro...ccess': False}
+E         Differing items:
+E         {'dispatched': True} != {'dispatched': False}
+E         {'success': True} != {'success': False}
+E         {'client_error': False} != {'client_error': True}
+E         Use -v to get more diff
+
+test_query_validation.py:10: AssertionError</failure></testcase></testsuite><testsuite name="vitest" tests="2" failures="0" errors="0"><testcase classname="TC-VQ-003" name="TC-VQ-003 / timeout ends polling, preserves history and permits successful retry" /><testcase classname="TC-VQ-004" name="TC-VQ-004 / B waits for A and each question receives its own answer" /></testsuite></testsuites>
