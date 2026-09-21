@@ -1,0 +1,25 @@
+
+ RUN  v2.1.9 D:/Code/text/test-videorag/Vimo-desktop/test_startup_configuration
+
+
+ Test Files  3 failed (3)
+      Tests  no tests
+   Start at  19:22:32
+   Duration  13.72s (transform 56ms, setup 0ms, collect 0ms, tests 0ms, environment 2ms, prepare 12.27s)
+
+JSON report written to D:/Code/text/test-videorag/Vimo-desktop/test_startup_configuration/results/2026-09-21T11-22-27-526Z-23060/vitest.json
+JUNIT report written to D:/Code/text/test-videorag/Vimo-desktop/test_startup_configuration/results/2026-09-21T11-22-27-526Z-23060/junit.xml
+⎯⎯⎯⎯⎯⎯ Failed Suites 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  api_key_validation.test.ts [ api_key_validation.test.ts ]
+ FAIL  configuration.test.ts [ configuration.test.ts ]
+ FAIL  startup.test.ts [ startup.test.ts ]
+SyntaxError: Cannot export hoisted variable. You can control hoisting behavior by placing the import from this file first.
+      2| import path from "node:path";
+      3| import { constants } from "node:fs";
+      4| export const mocks = vi.hoisted(() => ({
+       | ^
+      5|   handle: vi.fn(),
+      6|   axios: vi.fn(),
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="3" failures="3" errors="0" time="13.737">
+    <testsuite name="api_key_validation.test.ts" timestamp="2026-09-21T11:22:46.558Z" hostname="LAPTOP-E0T3TRBE" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="api_key_validation.test.ts" name="api_key_validation.test.ts" time="0">
+            <failure message="Cannot export hoisted variable. You can control hoisting behavior by placing the import from this file first." type="SyntaxError">
+SyntaxError: Cannot export hoisted variable. You can control hoisting behavior by placing the import from this file first.
+      2| import path from &quot;node:path&quot;;
+      3| import { constants } from &quot;node:fs&quot;;
+      4| export const mocks = vi.hoisted(() =&gt; ({
+       | ^
+      5|   handle: vi.fn(),
+      6|   axios: vi.fn(),
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="configuration.test.ts" timestamp="2026-09-21T11:22:46.565Z" hostname="LAPTOP-E0T3TRBE" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="configuration.test.ts" name="configuration.test.ts" time="0">
+            <failure message="Cannot export hoisted variable. You can control hoisting behavior by placing the import from this file first." type="SyntaxError">
+SyntaxError: Cannot export hoisted variable. You can control hoisting behavior by placing the import from this file first.
+      2| import path from &quot;node:path&quot;;
+      3| import { constants } from &quot;node:fs&quot;;
+      4| export const mocks = vi.hoisted(() =&gt; ({
+       | ^
+      5|   handle: vi.fn(),
+      6|   axios: vi.fn(),
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="startup.test.ts" timestamp="2026-09-21T11:22:46.570Z" hostname="LAPTOP-E0T3TRBE" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="startup.test.ts" name="startup.test.ts" time="0">
+            <failure message="Cannot export hoisted variable. You can control hoisting behavior by placing the import from this file first." type="SyntaxError">
+SyntaxError: Cannot export hoisted variable. You can control hoisting behavior by placing the import from this file first.
+      2| import path from &quot;node:path&quot;;
+      3| import { constants } from &quot;node:fs&quot;;
+      4| export const mocks = vi.hoisted(() =&gt; ({
+       | ^
+      5|   handle: vi.fn(),
+      6|   axios: vi.fn(),
+            </failure>
+        </testcase>
+    </testsuite>
+</testsuites>

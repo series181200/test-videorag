@@ -1,0 +1,322 @@
+
+ RUN  v2.1.9 D:/Code/text/test-videorag/Vimo-desktop/test_startup_configuration
+
+ ✓ startup.test.ts > TC-SC-001 / missing-packaged-executable rejects without spawning or scanning
+ × startup.test.ts > TC-SC-002 / connection-refused exits within the scan and elapsed-time budgets
+   → Startup must have rejected, not remain pending: expected 'pending' to be 'rejected' // Object.is equality
+   → At most 3 complete scans of 20 ports: expected 340 to be less than or equal to 60
+   → No retry or in-flight timeout survives the budget: expected 1 to be +0 // Object.is equality
+ × startup.test.ts > TC-SC-002 / request-timeout exits within the scan and elapsed-time budgets
+   → Startup must have rejected, not remain pending: expected 'pending' to be 'rejected' // Object.is equality
+   → No retry or in-flight timeout survives the budget: expected 1 to be +0 // Object.is equality
+ × startup.test.ts > TC-SC-002 / recovery starts a fresh attempt without old scans initializing again
+   → The first attempt must finish before retry: expected 'pending' to be 'rejected' // Object.is equality
+   → expected 1 to be +0 // Object.is equality
+   → An expired attempt must not become successful later: expected 'fulfilled' to be 'rejected' // Object.is equality
+   → Only the new attempt initializes: expected [] to have a length of 1 but got +0
+ × startup.test.ts > TC-SC-002 / healthy backend with invalid configuration is not successful application startup
+   → expected { success: true, …(1) } to match object { success: false }
+(1 matching property omitted from actual)
+ × configuration.test.ts > TC-SC-003 / damaged-json blocks initialization and can be repaired in the same application
+   → expected { success: true, settings: { …(13) } } to match object { success: true, settings: { …(3) } }
+(10 matching properties omitted from actual)
+ × configuration.test.ts > TC-SC-003 / storeDirectory blocks initialization and can be repaired in the same application
+   → expected { success: true, settings: { …(13) } } to match object { success: true, settings: { …(3) } }
+(10 matching properties omitted from actual)
+ × configuration.test.ts > TC-SC-003 / openaiApiKey blocks initialization and can be repaired in the same application
+   → expected { success: true, settings: { …(13) } } to match object { success: true, settings: { …(3) } }
+(10 matching properties omitted from actual)
+ × configuration.test.ts > TC-SC-003 / dashscopeApiKey blocks initialization and can be repaired in the same application
+   → expected { success: true, settings: { …(13) } } to match object { success: true, settings: { …(3) } }
+(10 matching properties omitted from actual)
+ × configuration.test.ts > TC-SC-005 / missing-model fails before backend initialization and succeeds after repair
+   → expected { success: false, …(1) } to match object { success: true }
+(1 matching property omitted from actual)
+ × configuration.test.ts > TC-SC-005 / read-only-storage fails before backend initialization and succeeds after repair
+   → expected { success: false, …(1) } to match object { success: true }
+(1 matching property omitted from actual)
+ × api_key_validation.test.ts > TC-SC-004 / unauthorized requires provider verification instead of a prefix-only decision
+   → No verification request means provider validity was never checked: expected 0 to be greater than 0
+   → expected true to be false // Object.is equality
+   → expected undefined to deeply equal Any<String>
+ × api_key_validation.test.ts > TC-SC-004 / authorized requires provider verification instead of a prefix-only decision
+   → No verification request means provider validity was never checked: expected 0 to be greater than 0
+ × api_key_validation.test.ts > TC-SC-004 / timeout requires provider verification instead of a prefix-only decision
+   → No verification request means provider validity was never checked: expected 0 to be greater than 0
+   → expected true to be false // Object.is equality
+   → expected undefined to deeply equal Any<String>
+   → .toMatch() expects to receive a string, but got undefined
+
+ Test Files  3 failed (3)
+      Tests  13 failed | 1 passed (14)
+   Start at  19:24:06
+   Duration  4.11s (transform 317ms, setup 359ms, collect 95ms, tests 770ms, environment 2ms, prepare 1.68s)
+
+JSON report written to D:/Code/text/test-videorag/Vimo-desktop/test_startup_configuration/results/2026-09-21T11-24-04-890Z-9492/vitest.json
+JUNIT report written to D:/Code/text/test-videorag/Vimo-desktop/test_startup_configuration/results/2026-09-21T11-24-04-890Z-9492/junit.xml
+⎯⎯⎯⎯⎯⎯ Failed Tests 13 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  api_key_validation.test.ts > TC-SC-004 / unauthorized requires provider verification instead of a prefix-only decision
+ FAIL  api_key_validation.test.ts > TC-SC-004 / authorized requires provider verification instead of a prefix-only decision
+ FAIL  api_key_validation.test.ts > TC-SC-004 / timeout requires provider verification instead of a prefix-only decision
+AssertionError: No verification request means provider validity was never checked: expected 0 to be greater than 0
+ ❯ api_key_validation.test.ts:23:76
+     21|     const result = await handler('test-api-key')(apiKey)
+     22|     expect.soft(mocks.axios.mock.calls.length + mocks.fetch.mock.calls…
+     23|       'No verification request means provider validity was never check…
+       |                                                                            ^
+     24|     expect.soft(result.success).toBe(outcome === 'authorized')
+     25|     if (outcome !== 'authorized') {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/24]⎯
+
+ FAIL  api_key_validation.test.ts > TC-SC-004 / unauthorized requires provider verification instead of a prefix-only decision
+ FAIL  api_key_validation.test.ts > TC-SC-004 / timeout requires provider verification instead of a prefix-only decision
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ api_key_validation.test.ts:24:33
+     22|     expect.soft(mocks.axios.mock.calls.length + mocks.fetch.mock.calls…
+     23|       'No verification request means provider validity was never check…
+     24|     expect.soft(result.success).toBe(outcome === 'authorized')
+       |                                 ^
+     25|     if (outcome !== 'authorized') {
+     26|       expect.soft(result.error).toEqual(expect.any(String))
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/24]⎯
+
+ FAIL  api_key_validation.test.ts > TC-SC-004 / unauthorized requires provider verification instead of a prefix-only decision
+ FAIL  api_key_validation.test.ts > TC-SC-004 / timeout requires provider verification instead of a prefix-only decision
+AssertionError: expected undefined to deeply equal Any<String>
+
+- Expected: 
+Any<String>
+
++ Received: 
+undefined
+
+ ❯ api_key_validation.test.ts:26:33
+     24|     expect.soft(result.success).toBe(outcome === 'authorized')
+     25|     if (outcome !== 'authorized') {
+     26|       expect.soft(result.error).toEqual(expect.any(String))
+       |                                 ^
+     27|       expect.soft(String(result.error)).not.toContain(apiKey)
+     28|       if (outcome === 'timeout') expect.soft(result.error).toMatch(/ti…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/24]⎯
+
+ FAIL  api_key_validation.test.ts > TC-SC-004 / timeout requires provider verification instead of a prefix-only decision
+TypeError: .toMatch() expects to receive a string, but got undefined
+ ❯ api_key_validation.test.ts:28:60
+     26|       expect.soft(result.error).toEqual(expect.any(String))
+     27|       expect.soft(String(result.error)).not.toContain(apiKey)
+     28|       if (outcome === 'timeout') expect.soft(result.error).toMatch(/ti…
+       |                                                            ^
+     29|     }
+     30|   },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/24]⎯
+
+ FAIL  configuration.test.ts > TC-SC-003 / damaged-json blocks initialization and can be repaired in the same application
+ FAIL  configuration.test.ts > TC-SC-003 / storeDirectory blocks initialization and can be repaired in the same application
+ FAIL  configuration.test.ts > TC-SC-003 / openaiApiKey blocks initialization and can be repaired in the same application
+ FAIL  configuration.test.ts > TC-SC-003 / dashscopeApiKey blocks initialization and can be repaired in the same application
+AssertionError: expected { success: true, settings: { …(13) } } to match object { success: true, settings: { …(3) } }
+(10 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  Object {
+    "settings": Object {
+-     "dashscopeApiKey": "fixture-dashscope",
+-     "openaiApiKey": "sk-fixture-openai",
+-     "storeDirectory": "D:\\sc-fixture\\store",
++     "dashscopeApiKey": "",
++     "openaiApiKey": "",
++     "storeDirectory": "",
+    },
+    "success": true,
+  }
+
+ ❯ configuration.test.ts:18:46
+     16|     // Repair through the real settings handler, without reloading app…
+     17|     expect(await handler('save-settings')(validSettings())).toMatchObj…
+     18|     expect(await handler('load-settings')()).toMatchObject({ success: …
+       |                                              ^
+     19|     expect(await handler('videorag:reinitialize-config')()).toMatchObj…
+     20|     expect(initializationCalls()).toHaveLength(1)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/24]⎯
+
+ FAIL  configuration.test.ts > TC-SC-005 / missing-model fails before backend initialization and succeeds after repair
+ FAIL  configuration.test.ts > TC-SC-005 / read-only-storage fails before backend initialization and succeeds after repair
+AssertionError: expected { success: false, …(1) } to match object { success: true }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  Object {
+-   "success": true,
++   "success": false,
+  }
+
+ ❯ configuration.test.ts:38:61
+     36|     permissions.storeReadOnly = false
+     37|     mocks.axios.mockClear()
+     38|     expect(await handler('videorag:reinitialize-config')()).toMatchObj…
+       |                                                             ^
+     39|     expect(initializationCalls()).toHaveLength(1)
+     40|   },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/24]⎯
+
+ FAIL  startup.test.ts > TC-SC-002 / connection-refused exits within the scan and elapsed-time budgets
+ FAIL  startup.test.ts > TC-SC-002 / request-timeout exits within the scan and elapsed-time budgets
+AssertionError: Startup must have rejected, not remain pending: expected 'pending' to be 'rejected' // Object.is equality
+
+Expected: "rejected"
+Received: "pending"
+
+ ❯ startup.test.ts:25:83
+     23|     const attempt = observe(service.startVideoRAGService())
+     24|     await vi.advanceTimersByTimeAsync(policy.startupBudgetMs)
+     25|     expect.soft(attempt.status, 'Startup must have rejected, not remai…
+       |                                                                                   ^
+     26|     expect.soft(healthCalls().length, 'At most 3 complete scans of 20 …
+     27|     expect.soft(vi.getTimerCount(), 'No retry or in-flight timeout sur…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/24]⎯
+
+ FAIL  startup.test.ts > TC-SC-002 / connection-refused exits within the scan and elapsed-time budgets
+AssertionError: At most 3 complete scans of 20 ports: expected 340 to be less than or equal to 60
+ ❯ startup.test.ts:26:79
+     24|     await vi.advanceTimersByTimeAsync(policy.startupBudgetMs)
+     25|     expect.soft(attempt.status, 'Startup must have rejected, not remai…
+     26|     expect.soft(healthCalls().length, 'At most 3 complete scans of 20 …
+       |                                                                               ^
+     27|     expect.soft(vi.getTimerCount(), 'No retry or in-flight timeout sur…
+     28|     expect(initializationCalls()).toHaveLength(0)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/24]⎯
+
+ FAIL  startup.test.ts > TC-SC-002 / connection-refused exits within the scan and elapsed-time budgets
+ FAIL  startup.test.ts > TC-SC-002 / request-timeout exits within the scan and elapsed-time budgets
+AssertionError: No retry or in-flight timeout survives the budget: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ startup.test.ts:27:90
+     25|     expect.soft(attempt.status, 'Startup must have rejected, not remai…
+     26|     expect.soft(healthCalls().length, 'At most 3 complete scans of 20 …
+     27|     expect.soft(vi.getTimerCount(), 'No retry or in-flight timeout sur…
+       |                                                                                          ^
+     28|     expect(initializationCalls()).toHaveLength(0)
+     29|   },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/24]⎯
+
+ FAIL  startup.test.ts > TC-SC-002 / recovery starts a fresh attempt without old scans initializing again
+AssertionError: The first attempt must finish before retry: expected 'pending' to be 'rejected' // Object.is equality
+
+Expected: "rejected"
+Received: "pending"
+
+ ❯ startup.test.ts:37:75
+     35|   const first = observe(service.startVideoRAGService())
+     36|   await vi.advanceTimersByTimeAsync(policy.startupBudgetMs)
+     37|   expect.soft(first.status, 'The first attempt must finish before retr…
+       |                                                                           ^
+     38|   expect.soft(vi.getTimerCount()).toBe(0)
+     39|   mocks.axios.mockImplementation(async config => ({ data: config.url.e…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/24]⎯
+
+ FAIL  startup.test.ts > TC-SC-002 / recovery starts a fresh attempt without old scans initializing again
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ startup.test.ts:38:35
+     36|   await vi.advanceTimersByTimeAsync(policy.startupBudgetMs)
+     37|   expect.soft(first.status, 'The first attempt must finish before retr…
+     38|   expect.soft(vi.getTimerCount()).toBe(0)
+       |                                   ^
+     39|   mocks.axios.mockImplementation(async config => ({ data: config.url.e…
+     40|   const retry = observe(handler('videorag:start-service')())
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/24]⎯
+
+ FAIL  startup.test.ts > TC-SC-002 / recovery starts a fresh attempt without old scans initializing again
+AssertionError: An expired attempt must not become successful later: expected 'fulfilled' to be 'rejected' // Object.is equality
+
+Expected: "rejected"
+Received: "fulfilled"
+
+ ❯ startup.test.ts:44:84
+     42|   expect(retry.status).toBe('fulfilled')
+     43|   expect(retry.value).toMatchObject({ success: true })
+     44|   expect.soft(first.status, 'An expired attempt must not become succes…
+       |                                                                                    ^
+     45|   expect.soft(initializationCalls(), 'Only the new attempt initializes…
+     46|   expect(vi.getTimerCount()).toBe(0)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/24]⎯
+
+ FAIL  startup.test.ts > TC-SC-002 / recovery starts a fresh attempt without old scans initializing again
+AssertionError: Only the new attempt initializes: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ startup.test.ts:45:74
+     43|   expect(retry.value).toMatchObject({ success: true })
+     44|   expect.soft(first.status, 'An expired attempt must not become succes…
+     45|   expect.soft(initializationCalls(), 'Only the new attempt initializes…
+       |                                                                          ^
+     46|   expect(vi.getTimerCount()).toBe(0)
+     47| })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/24]⎯
+
+ FAIL  startup.test.ts > TC-SC-002 / healthy backend with invalid configuration is not successful application startup
+AssertionError: expected { success: true, …(1) } to match object { success: false }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  Object {
+-   "success": false,
++   "success": true,
+  }
+
+ ❯ startup.test.ts:55:24
+     53|   await vi.advanceTimersByTimeAsync(10_000)
+     54|   expect(result.status).toBe('fulfilled')
+     55|   expect(result.value).toMatchObject({ success: false })
+       |                        ^
+     56|   expect(initializationCalls()).toHaveLength(0)
+     57| })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/24]⎯
+
+(node:7588) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 unhandledRejection listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)

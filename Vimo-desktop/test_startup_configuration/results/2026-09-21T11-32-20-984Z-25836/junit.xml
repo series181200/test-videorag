@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites><testsuite name="SC" tests="14" failures="8" errors="0" skipped="0"><testcase classname="StartupConfiguration" name="TC-SC-004 / unauthorized requires provider verification instead of a prefix-only decision" time="0.0944778"><failure>AssertionError: No verification request means provider validity was never checked: expected 0 to be greater than 0
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\api_key_validation.test.ts:22:76
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+AssertionError: expected true to be false // Object.is equality
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\api_key_validation.test.ts:23:33
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+AssertionError: expected undefined to deeply equal Any&lt;String&gt;
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\api_key_validation.test.ts:25:33
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)</failure></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-004 / authorized requires provider verification instead of a prefix-only decision" time="0.05500639999999998"><failure>AssertionError: No verification request means provider validity was never checked: expected 0 to be greater than 0
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\api_key_validation.test.ts:22:76
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)</failure></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-004 / timeout requires provider verification instead of a prefix-only decision" time="0.041916899999999944"><failure>AssertionError: No verification request means provider validity was never checked: expected 0 to be greater than 0
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\api_key_validation.test.ts:22:76
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+AssertionError: expected true to be false // Object.is equality
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\api_key_validation.test.ts:23:33
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+AssertionError: expected undefined to deeply equal Any&lt;String&gt;
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\api_key_validation.test.ts:25:33
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+AssertionError: expected &apos;undefined&apos; to match /timeout|timed out|network|超时|网络/i
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\api_key_validation.test.ts:27:68
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)</failure></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-003 / damaged-json blocks initialization and can be repaired in the same application" time="0.13185040000000003"></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-003 / storeDirectory blocks initialization and can be repaired in the same application" time="0.06904050000000006"></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-003 / openaiApiKey blocks initialization and can be repaired in the same application" time="0.05055880000000002"></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-003 / dashscopeApiKey blocks initialization and can be repaired in the same application" time="0.045487800000000106"></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-005 / missing-model fails before backend initialization and succeeds after repair" time="0.04324700000000007"></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-005 / read-only-storage fails before backend initialization and succeeds after repair" time="0.08615880000000016"><failure>AssertionError: Resources must be usable before reporting initialized: expected true to be false // Object.is equality
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\configuration.test.ts:30:91
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+AssertionError: expected &apos;undefined&apos; to match /storage|permission|writ|EACCES/i
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\configuration.test.ts:31:40
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+AssertionError: Invalid resources must not reach /initialize: expected [ [ { method: &apos;POST&apos;, …(3) } ] ] to have a length of +0 but got 1
+    at Proxy.&lt;anonymous&gt; (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/expect/dist/index.js:1339:22)
+    at Proxy.&lt;anonymous&gt; (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/expect/dist/index.js:979:17)
+    at Proxy.methodWrapper (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/chai/index.js:1686:25)
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\configuration.test.ts:32:88
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)</failure></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-001 / missing-packaged-executable rejects without spawning or scanning" time="0.4137426"></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-002 / connection-refused exits within the scan and elapsed-time budgets" time="0.16882220000000006"><failure>AssertionError: Startup must have rejected, not remain pending: expected &apos;pending&apos; to be &apos;rejected&apos; // Object.is equality
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\startup.test.ts:24:83
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+    at runBaseTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/base.BZZh4cSm.js:29:3)
+AssertionError: At most 3 complete scans of 20 ports: expected 340 to be less than or equal to 60
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\startup.test.ts:25:79
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+    at runBaseTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/base.BZZh4cSm.js:29:3)
+AssertionError: No retry or in-flight timeout survives the budget: expected 1 to be +0 // Object.is equality
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\startup.test.ts:26:90
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+    at runBaseTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/base.BZZh4cSm.js:29:3)</failure></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-002 / request-timeout exits within the scan and elapsed-time budgets" time="0.0409046000000003"><failure>AssertionError: Startup must have rejected, not remain pending: expected &apos;pending&apos; to be &apos;rejected&apos; // Object.is equality
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\startup.test.ts:24:83
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+    at runBaseTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/base.BZZh4cSm.js:29:3)
+AssertionError: No retry or in-flight timeout survives the budget: expected 1 to be +0 // Object.is equality
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\startup.test.ts:26:90
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+    at runBaseTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/base.BZZh4cSm.js:29:3)</failure></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-002 / recovery starts a fresh attempt without old scans initializing again" time="0.1544713999999999"><failure>AssertionError: The first attempt must finish before retry: expected &apos;pending&apos; to be &apos;rejected&apos; // Object.is equality
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\startup.test.ts:36:75
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+    at runBaseTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/base.BZZh4cSm.js:29:3)
+AssertionError: expected 1 to be +0 // Object.is equality
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\startup.test.ts:37:35
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+    at runBaseTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/base.BZZh4cSm.js:29:3)
+AssertionError: An expired attempt must not become successful later: expected &apos;fulfilled&apos; to be &apos;rejected&apos; // Object.is equality
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\startup.test.ts:43:84
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)
+    at runBaseTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/base.BZZh4cSm.js:29:3)
+AssertionError: Only the new attempt initializes: expected [ [ { method: &apos;POST&apos;, …(3) } ], …(1) ] to have a length of 1 but got 2
+    at Proxy.&lt;anonymous&gt; (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/expect/dist/index.js:1339:22)
+    at Proxy.&lt;anonymous&gt; (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/expect/dist/index.js:979:17)
+    at Proxy.methodWrapper (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/chai/index.js:1686:25)
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\startup.test.ts:44:74
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11</failure></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-002 / healthy backend with invalid configuration is not successful application startup" time="0.058966799999999694"><failure>AssertionError: expected { success: true, …(1) } to match object { success: false }
+(1 matching property omitted from actual)
+    at Proxy.&lt;anonymous&gt; (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/expect/dist/index.js:1134:13)
+    at Proxy.&lt;anonymous&gt; (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/expect/dist/index.js:972:17)
+    at Proxy.methodWrapper (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/chai/index.js:1686:25)
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\startup.test.ts:54:24
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11</failure></testcase></testsuite></testsuites>

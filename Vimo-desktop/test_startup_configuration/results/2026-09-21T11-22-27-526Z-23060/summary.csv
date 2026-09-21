@@ -1,0 +1,6 @@
+﻿ID,Status,Expected,Collected,Passed,Failed
+TC-SC-001,ERROR,1,0,0,0
+TC-SC-002,ERROR,4,0,0,0
+TC-SC-003,ERROR,4,0,0,0
+TC-SC-004,ERROR,3,0,0,0
+TC-SC-005,ERROR,2,0,0,0

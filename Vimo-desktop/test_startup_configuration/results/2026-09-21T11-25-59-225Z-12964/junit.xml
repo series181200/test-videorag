@@ -1,0 +1,1776 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="14" failures="8" errors="0" time="3.819">
+    <testsuite name="api_key_validation.test.ts" timestamp="2026-09-21T11:26:04.894Z" hostname="LAPTOP-E0T3TRBE" tests="3" failures="3" errors="0" skipped="0" time="0.0997058">
+        <testcase classname="api_key_validation.test.ts" name="TC-SC-004 / unauthorized requires provider verification instead of a prefix-only decision" time="0.0491759">
+            <failure message="No verification request means provider validity was never checked: expected 0 to be greater than 0" type="AssertionError">
+AssertionError: No verification request means provider validity was never checked: expected 0 to be greater than 0
+ ❯ api_key_validation.test.ts:23:76
+            </failure>
+            <failure message="expected true to be false // Object.is equality" type="AssertionError">
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ api_key_validation.test.ts:24:33
+            </failure>
+            <failure message="expected undefined to deeply equal Any&lt;String&gt;" type="AssertionError">
+AssertionError: expected undefined to deeply equal Any&lt;String&gt;
+
+- Expected: 
+Any&lt;String&gt;
+
++ Received: 
+undefined
+
+ ❯ api_key_validation.test.ts:26:33
+            </failure>
+        </testcase>
+        <testcase classname="api_key_validation.test.ts" name="TC-SC-004 / authorized requires provider verification instead of a prefix-only decision" time="0.0259947">
+            <failure message="No verification request means provider validity was never checked: expected 0 to be greater than 0" type="AssertionError">
+AssertionError: No verification request means provider validity was never checked: expected 0 to be greater than 0
+ ❯ api_key_validation.test.ts:23:76
+            </failure>
+        </testcase>
+        <testcase classname="api_key_validation.test.ts" name="TC-SC-004 / timeout requires provider verification instead of a prefix-only decision" time="0.0222657">
+            <failure message="No verification request means provider validity was never checked: expected 0 to be greater than 0" type="AssertionError">
+AssertionError: No verification request means provider validity was never checked: expected 0 to be greater than 0
+ ❯ api_key_validation.test.ts:23:76
+            </failure>
+            <failure message="expected true to be false // Object.is equality" type="AssertionError">
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ api_key_validation.test.ts:24:33
+            </failure>
+            <failure message="expected undefined to deeply equal Any&lt;String&gt;" type="AssertionError">
+AssertionError: expected undefined to deeply equal Any&lt;String&gt;
+
+- Expected: 
+Any&lt;String&gt;
+
++ Received: 
+undefined
+
+ ❯ api_key_validation.test.ts:26:33
+            </failure>
+            <failure message="expected &apos;undefined&apos; to match /timeout|timed out|network|超时|网络/i" type="AssertionError">
+AssertionError: expected &apos;undefined&apos; to match /timeout|timed out|network|超时|网络/i
+
+- Expected: 
+/timeout|timed out|network|超时|网络/i
+
++ Received: 
+&quot;undefined&quot;
+
+ ❯ api_key_validation.test.ts:28:68
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="configuration.test.ts" timestamp="2026-09-21T11:26:04.917Z" hostname="LAPTOP-E0T3TRBE" tests="6" failures="1" errors="0" skipped="0" time="0.1984128">
+        <testcase classname="configuration.test.ts" name="TC-SC-003 / damaged-json blocks initialization and can be repaired in the same application" time="0.0548996">
+            <system-out>
+🔧 Loading VideoRAG configuration...
+📁 Bootstrap config not found, using defaults
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;NOT_SET&apos;,
+  dashscopeApiKey: &apos;NOT_SET&apos;,
+  storeDirectory: &apos;&apos;
+}
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;❌ MISSING&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;❌ MISSING&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;❌ MISSING&apos;,
+  base_storage_path: &apos;❌ MISSING&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+🛑 Stopping VideoRAG service due to configuration errors...
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+✅ ImageBind model file verified: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+✅ Storage directory verified: D:\sc-fixture\store
+🔧 All required configuration validated successfully: {
+  ali_dashscope_api_key: &apos;***&apos;,
+  openai_api_key: &apos;***&apos;,
+  image_bind_model_path: &apos;D:\\sc-fixture\\store\\imagebind_huge\\imagebind_huge.pth&apos;,
+  base_storage_path: &apos;D:\\sc-fixture\\store&apos;,
+  ali_dashscope_base_url: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  openai_base_url: &apos;https://api.openai.com/v1&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  caption_model: &apos;qwen-vl-plus-latest&apos;,
+  asr_model: &apos;paraformer-realtime-v2&apos;
+}
+📡 API call: POST /initialize (timeout: 120000ms)
+✅ VideoRAG global configuration set successfully!
+
+            </system-out>
+            <system-err>
+❌ VideoRAG configuration validation failed!
+
+Missing required fields:
+  • Ali Dashscope API Key (dashscopeApiKey)
+  • OpenAI API Key (openaiApiKey)
+  • Base Storage Path (storeDirectory)
+  • ImageBind Model Path (storeDirectory + imagebind_huge/imagebind_huge.pth)
+
+Please run the initialization wizard to configure these settings.
+❌ VideoRAG configuration initialization failed: Error: Missing required configuration fields: Ali Dashscope API Key (dashscopeApiKey), OpenAI API Key (openaiApiKey), Base Storage Path (storeDirectory), ImageBind Model Path (storeDirectory + imagebind_huge/imagebind_huge.pth)
+    at initializeVideoRAGConfig (D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:314:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:643:7
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\configuration.test.ts:11:21
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+
+            </system-err>
+        </testcase>
+        <testcase classname="configuration.test.ts" name="TC-SC-003 / storeDirectory blocks initialization and can be repaired in the same application" time="0.0314481">
+            <system-out>
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: []
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;NOT_SET&apos;,
+  dashscopeApiKey: &apos;NOT_SET&apos;,
+  storeDirectory: &apos;&apos;
+}
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;❌ MISSING&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;❌ MISSING&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;❌ MISSING&apos;,
+  base_storage_path: &apos;❌ MISSING&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+🛑 Stopping VideoRAG service due to configuration errors...
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+✅ ImageBind model file verified: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+✅ Storage directory verified: D:\sc-fixture\store
+🔧 All required configuration validated successfully: {
+  ali_dashscope_api_key: &apos;***&apos;,
+  openai_api_key: &apos;***&apos;,
+  image_bind_model_path: &apos;D:\\sc-fixture\\store\\imagebind_huge\\imagebind_huge.pth&apos;,
+  base_storage_path: &apos;D:\\sc-fixture\\store&apos;,
+  ali_dashscope_base_url: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  openai_base_url: &apos;https://api.openai.com/v1&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  caption_model: &apos;qwen-vl-plus-latest&apos;,
+  asr_model: &apos;paraformer-realtime-v2&apos;
+}
+📡 API call: POST /initialize (timeout: 120000ms)
+✅ VideoRAG global configuration set successfully!
+
+            </system-out>
+            <system-err>
+❌ VideoRAG configuration validation failed!
+
+Missing required fields:
+  • Ali Dashscope API Key (dashscopeApiKey)
+  • OpenAI API Key (openaiApiKey)
+  • Base Storage Path (storeDirectory)
+  • ImageBind Model Path (storeDirectory + imagebind_huge/imagebind_huge.pth)
+
+Please run the initialization wizard to configure these settings.
+❌ VideoRAG configuration initialization failed: Error: Missing required configuration fields: Ali Dashscope API Key (dashscopeApiKey), OpenAI API Key (openaiApiKey), Base Storage Path (storeDirectory), ImageBind Model Path (storeDirectory + imagebind_huge/imagebind_huge.pth)
+    at initializeVideoRAGConfig (D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:314:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:643:7
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\configuration.test.ts:11:21
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+
+            </system-err>
+        </testcase>
+        <testcase classname="configuration.test.ts" name="TC-SC-003 / openaiApiKey blocks initialization and can be repaired in the same application" time="0.0221528">
+            <system-out>
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;NOT_SET&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;❌ MISSING&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+🛑 Stopping VideoRAG service due to configuration errors...
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+✅ ImageBind model file verified: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+✅ Storage directory verified: D:\sc-fixture\store
+🔧 All required configuration validated successfully: {
+  ali_dashscope_api_key: &apos;***&apos;,
+  openai_api_key: &apos;***&apos;,
+  image_bind_model_path: &apos;D:\\sc-fixture\\store\\imagebind_huge\\imagebind_huge.pth&apos;,
+  base_storage_path: &apos;D:\\sc-fixture\\store&apos;,
+  ali_dashscope_base_url: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  openai_base_url: &apos;https://api.openai.com/v1&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  caption_model: &apos;qwen-vl-plus-latest&apos;,
+  asr_model: &apos;paraformer-realtime-v2&apos;
+}
+📡 API call: POST /initialize (timeout: 120000ms)
+✅ VideoRAG global configuration set successfully!
+
+            </system-out>
+            <system-err>
+❌ VideoRAG configuration validation failed!
+
+Missing required fields:
+  • OpenAI API Key (openaiApiKey)
+
+Please run the initialization wizard to configure these settings.
+❌ VideoRAG configuration initialization failed: Error: Missing required configuration fields: OpenAI API Key (openaiApiKey)
+    at initializeVideoRAGConfig (D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:314:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:643:7
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\configuration.test.ts:11:21
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+
+            </system-err>
+        </testcase>
+        <testcase classname="configuration.test.ts" name="TC-SC-003 / dashscopeApiKey blocks initialization and can be repaired in the same application" time="0.0248722">
+            <system-out>
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;NOT_SET&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;❌ MISSING&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+🛑 Stopping VideoRAG service due to configuration errors...
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+✅ ImageBind model file verified: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+✅ Storage directory verified: D:\sc-fixture\store
+🔧 All required configuration validated successfully: {
+  ali_dashscope_api_key: &apos;***&apos;,
+  openai_api_key: &apos;***&apos;,
+  image_bind_model_path: &apos;D:\\sc-fixture\\store\\imagebind_huge\\imagebind_huge.pth&apos;,
+  base_storage_path: &apos;D:\\sc-fixture\\store&apos;,
+  ali_dashscope_base_url: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  openai_base_url: &apos;https://api.openai.com/v1&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  caption_model: &apos;qwen-vl-plus-latest&apos;,
+  asr_model: &apos;paraformer-realtime-v2&apos;
+}
+📡 API call: POST /initialize (timeout: 120000ms)
+✅ VideoRAG global configuration set successfully!
+
+            </system-out>
+            <system-err>
+❌ VideoRAG configuration validation failed!
+
+Missing required fields:
+  • Ali Dashscope API Key (dashscopeApiKey)
+
+Please run the initialization wizard to configure these settings.
+❌ VideoRAG configuration initialization failed: Error: Missing required configuration fields: Ali Dashscope API Key (dashscopeApiKey)
+    at initializeVideoRAGConfig (D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:314:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:643:7
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\configuration.test.ts:11:21
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+
+            </system-err>
+        </testcase>
+        <testcase classname="configuration.test.ts" name="TC-SC-005 / missing-model fails before backend initialization and succeeds after repair" time="0.0227505">
+            <system-out>
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+🛑 Stopping VideoRAG service due to missing model file...
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+✅ ImageBind model file verified: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+✅ Storage directory verified: D:\sc-fixture\store
+🔧 All required configuration validated successfully: {
+  ali_dashscope_api_key: &apos;***&apos;,
+  openai_api_key: &apos;***&apos;,
+  image_bind_model_path: &apos;D:\\sc-fixture\\store\\imagebind_huge\\imagebind_huge.pth&apos;,
+  base_storage_path: &apos;D:\\sc-fixture\\store&apos;,
+  ali_dashscope_base_url: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  openai_base_url: &apos;https://api.openai.com/v1&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  caption_model: &apos;qwen-vl-plus-latest&apos;,
+  asr_model: &apos;paraformer-realtime-v2&apos;
+}
+📡 API call: POST /initialize (timeout: 120000ms)
+✅ VideoRAG global configuration set successfully!
+
+            </system-out>
+            <system-err>
+❌ ImageBind model file not found: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+
+The file should be downloaded during initialization wizard.
+Please run the initialization wizard to download the ImageBind model.
+❌ VideoRAG configuration initialization failed: Error: ImageBind model file not found: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+    at initializeVideoRAGConfig (D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:331:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:643:7
+    at D:\Code\text\test-videorag\Vimo-desktop\test_startup_configuration\configuration.test.ts:30:21
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/Code/text/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+
+            </system-err>
+        </testcase>
+        <testcase classname="configuration.test.ts" name="TC-SC-005 / read-only-storage fails before backend initialization and succeeds after repair" time="0.03974">
+            <system-out>
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+✅ ImageBind model file verified: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+✅ Storage directory verified: D:\sc-fixture\store
+🔧 All required configuration validated successfully: {
+  ali_dashscope_api_key: &apos;***&apos;,
+  openai_api_key: &apos;***&apos;,
+  image_bind_model_path: &apos;D:\\sc-fixture\\store\\imagebind_huge\\imagebind_huge.pth&apos;,
+  base_storage_path: &apos;D:\\sc-fixture\\store&apos;,
+  ali_dashscope_base_url: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  openai_base_url: &apos;https://api.openai.com/v1&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  caption_model: &apos;qwen-vl-plus-latest&apos;,
+  asr_model: &apos;paraformer-realtime-v2&apos;
+}
+📡 API call: POST /initialize (timeout: 120000ms)
+✅ VideoRAG global configuration set successfully!
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+✅ ImageBind model file verified: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+✅ Storage directory verified: D:\sc-fixture\store
+🔧 All required configuration validated successfully: {
+  ali_dashscope_api_key: &apos;***&apos;,
+  openai_api_key: &apos;***&apos;,
+  image_bind_model_path: &apos;D:\\sc-fixture\\store\\imagebind_huge\\imagebind_huge.pth&apos;,
+  base_storage_path: &apos;D:\\sc-fixture\\store&apos;,
+  ali_dashscope_base_url: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  openai_base_url: &apos;https://api.openai.com/v1&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  caption_model: &apos;qwen-vl-plus-latest&apos;,
+  asr_model: &apos;paraformer-realtime-v2&apos;
+}
+📡 API call: POST /initialize (timeout: 120000ms)
+✅ VideoRAG global configuration set successfully!
+
+            </system-out>
+            <failure message="Resources must be usable before reporting initialized: expected true to be false // Object.is equality" type="AssertionError">
+AssertionError: Resources must be usable before reporting initialized: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ configuration.test.ts:31:91
+            </failure>
+            <failure message="expected &apos;undefined&apos; to match /storage|permission|writ|EACCES/i" type="AssertionError">
+AssertionError: expected &apos;undefined&apos; to match /storage|permission|writ|EACCES/i
+
+- Expected: 
+/storage|permission|writ|EACCES/i
+
++ Received: 
+&quot;undefined&quot;
+
+ ❯ configuration.test.ts:32:40
+            </failure>
+            <failure message="Invalid resources must not reach /initialize: expected [ [ { method: &apos;POST&apos;, …(3) } ] ] to have a length of +0 but got 1" type="AssertionError">
+AssertionError: Invalid resources must not reach /initialize: expected [ [ { method: &apos;POST&apos;, …(3) } ] ] to have a length of +0 but got 1
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ configuration.test.ts:33:88
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="startup.test.ts" timestamp="2026-09-21T11:26:04.935Z" hostname="LAPTOP-E0T3TRBE" tests="5" failures="4" errors="0" skipped="0" time="0.3887753">
+        <testcase classname="startup.test.ts" name="TC-SC-001 / missing-packaged-executable rejects without spawning or scanning" time="0.1814911">
+            <system-out>
+🚀 Production mode - starting packaged backend service
+
+            </system-out>
+            <system-err>
+❌ Packaged executable not found at: D:\sc-fixture\resources\python_backend\dist\videorag_api\videorag_api.exe
+
+            </system-err>
+        </testcase>
+        <testcase classname="startup.test.ts" name="TC-SC-002 / connection-refused exits within the scan and elapsed-time budgets" time="0.0790155">
+            <system-out>
+🚀 Development mode detected - skipping backend service startup
+💡 In development, scanning for manually started Python backend...
+⏳ Initial timeout reached, starting continuous service detection...
+🔍 Scanning attempt 1/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (1/1000000)
+🔍 Scanning attempt 2/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (2/1000000)
+🔍 Scanning attempt 3/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (3/1000000)
+🔍 Scanning attempt 4/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (4/1000000)
+🔍 Scanning attempt 5/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (5/1000000)
+🔍 Scanning attempt 6/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (6/1000000)
+🔍 Scanning attempt 7/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (7/1000000)
+
+🔍 Scanning attempt 8/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (8/1000000)
+🔍 Scanning attempt 9/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (9/1000000)
+🔍 Scanning attempt 10/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (10/1000000)
+🔍 Scanning attempt 11/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (11/1000000)
+🔍 Scanning attempt 12/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (12/1000000)
+🔍 Scanning attempt 13/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (13/1000000)
+🔍 Scanning attempt 14/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (14/1000000)
+🔍 Scanning attempt 15/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (15/1000000)
+🔍 Scanning attempt 16/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (16/1000000)
+🔍 Scanning attempt 17/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (17/1000000)
+
+            </system-out>
+            <failure message="Startup must have rejected, not remain pending: expected &apos;pending&apos; to be &apos;rejected&apos; // Object.is equality" type="AssertionError">
+AssertionError: Startup must have rejected, not remain pending: expected &apos;pending&apos; to be &apos;rejected&apos; // Object.is equality
+
+Expected: &quot;rejected&quot;
+Received: &quot;pending&quot;
+
+ ❯ startup.test.ts:25:83
+            </failure>
+            <failure message="At most 3 complete scans of 20 ports: expected 340 to be less than or equal to 60" type="AssertionError">
+AssertionError: At most 3 complete scans of 20 ports: expected 340 to be less than or equal to 60
+ ❯ startup.test.ts:26:79
+            </failure>
+            <failure message="No retry or in-flight timeout survives the budget: expected 1 to be +0 // Object.is equality" type="AssertionError">
+AssertionError: No retry or in-flight timeout survives the budget: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ startup.test.ts:27:90
+            </failure>
+        </testcase>
+        <testcase classname="startup.test.ts" name="TC-SC-002 / request-timeout exits within the scan and elapsed-time budgets" time="0.0295773">
+            <system-out>
+🚀 Development mode detected - skipping backend service startup
+💡 In development, scanning for manually started Python backend...
+⏳ Initial timeout reached, starting continuous service detection...
+🔍 Scanning attempt 1/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+
+🔍 Health check failed on port 64451: request-timeout
+
+🔍 Health check failed on port 64452: request-timeout
+🔍 Health check failed on port 64453: request-timeout
+🔍 Health check failed on port 64454: request-timeout
+
+🔍 Health check failed on port 64455: request-timeout
+🔍 Health check failed on port 64456: request-timeout
+🔍 Health check failed on port 64457: request-timeout
+🔍 Health check failed on port 64458: request-timeout
+
+🔍 Health check failed on port 64459: request-timeout
+🔍 Health check failed on port 64460: request-timeout
+
+            </system-out>
+            <failure message="Startup must have rejected, not remain pending: expected &apos;pending&apos; to be &apos;rejected&apos; // Object.is equality" type="AssertionError">
+AssertionError: Startup must have rejected, not remain pending: expected &apos;pending&apos; to be &apos;rejected&apos; // Object.is equality
+
+Expected: &quot;rejected&quot;
+Received: &quot;pending&quot;
+
+ ❯ startup.test.ts:25:83
+            </failure>
+            <failure message="No retry or in-flight timeout survives the budget: expected 1 to be +0 // Object.is equality" type="AssertionError">
+AssertionError: No retry or in-flight timeout survives the budget: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ startup.test.ts:27:90
+            </failure>
+        </testcase>
+        <testcase classname="startup.test.ts" name="TC-SC-002 / recovery starts a fresh attempt without old scans initializing again" time="0.0584655">
+            <system-out>
+🚀 Development mode detected - skipping backend service startup
+💡 In development, scanning for manually started Python backend...
+⏳ Initial timeout reached, starting continuous service detection...
+🔍 Scanning attempt 1/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (1/1000000)
+🔍 Scanning attempt 2/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (2/1000000)
+🔍 Scanning attempt 3/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (3/1000000)
+🔍 Scanning attempt 4/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (4/1000000)
+
+🔍 Scanning attempt 5/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (5/1000000)
+🔍 Scanning attempt 6/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (6/1000000)
+🔍 Scanning attempt 7/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (7/1000000)
+🔍 Scanning attempt 8/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (8/1000000)
+🔍 Scanning attempt 9/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (9/1000000)
+🔍 Scanning attempt 10/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (10/1000000)
+🔍 Scanning attempt 11/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (11/1000000)
+🔍 Scanning attempt 12/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (12/1000000)
+🔍 Scanning attempt 13/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (13/1000000)
+🔍 Scanning attempt 14/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (14/1000000)
+🔍 Scanning attempt 15/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (15/1000000)
+🔍 Scanning attempt 16/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (16/1000000)
+🔍 Scanning attempt 17/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+🔍 Port 64451 not ready yet (connection refused)
+🔍 Port 64452 not ready yet (connection refused)
+🔍 Port 64453 not ready yet (connection refused)
+🔍 Port 64454 not ready yet (connection refused)
+🔍 Port 64455 not ready yet (connection refused)
+🔍 Port 64456 not ready yet (connection refused)
+🔍 Port 64457 not ready yet (connection refused)
+🔍 Port 64458 not ready yet (connection refused)
+🔍 Port 64459 not ready yet (connection refused)
+🔍 Port 64460 not ready yet (connection refused)
+🔍 Port 64461 not ready yet (connection refused)
+🔍 Port 64462 not ready yet (connection refused)
+🔍 Port 64463 not ready yet (connection refused)
+🔍 Port 64464 not ready yet (connection refused)
+🔍 Port 64465 not ready yet (connection refused)
+🔍 Port 64466 not ready yet (connection refused)
+🔍 Port 64467 not ready yet (connection refused)
+🔍 Port 64468 not ready yet (connection refused)
+🔍 Port 64469 not ready yet (connection refused)
+🔍 Port 64470 not ready yet (connection refused)
+❌ No VideoRAG service found in port range 64451-64470
+❌ Service not found, retrying in 3 seconds... (17/1000000)
+🚀 Development mode detected - skipping backend service startup
+💡 In development, scanning for manually started Python backend...
+🔍 Scanning attempt 18/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+✅ Health check successful on port 64451: { status: &apos;ok&apos; }
+🎯 Found healthy VideoRAG service on port 64451
+✅ Found service on port 64451 after 18 attempts!
+📡 Updated API base URL to: http://localhost:64451/api
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+✅ ImageBind model file verified: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+✅ Storage directory verified: D:\sc-fixture\store
+🔧 All required configuration validated successfully: {
+  ali_dashscope_api_key: &apos;***&apos;,
+  openai_api_key: &apos;***&apos;,
+  image_bind_model_path: &apos;D:\\sc-fixture\\store\\imagebind_huge\\imagebind_huge.pth&apos;,
+  base_storage_path: &apos;D:\\sc-fixture\\store&apos;,
+  ali_dashscope_base_url: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  openai_base_url: &apos;https://api.openai.com/v1&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  caption_model: &apos;qwen-vl-plus-latest&apos;,
+  asr_model: &apos;paraformer-realtime-v2&apos;
+}
+📡 API call: POST /initialize (timeout: 120000ms)
+✅ VideoRAG global configuration set successfully!
+⏳ Initial timeout reached, starting continuous service detection...
+🔍 Scanning attempt 1/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+✅ Health check successful on port 64451: { status: &apos;ok&apos; }
+🎯 Found healthy VideoRAG service on port 64451
+✅ Found service on port 64451 after 1 attempts!
+📡 Updated API base URL to: http://localhost:64451/api
+🔧 Loading VideoRAG configuration...
+📁 Loaded bootstrap config: [ &apos;storeDirectory&apos; ]
+📁 Loaded main config from: D:\sc-fixture\store\config.json
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;***&apos;,
+  dashscopeApiKey: &apos;***&apos;,
+  storeDirectory: &apos;D:\\sc-fixture\\store&apos;
+}
+🔧 Constructed ImageBind path: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;✅ SET&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;✅ SET&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;✅ SET&apos;,
+  base_storage_path: &apos;✅ SET&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+✅ ImageBind model file verified: D:\sc-fixture\store\imagebind_huge\imagebind_huge.pth
+✅ Storage directory verified: D:\sc-fixture\store
+🔧 All required configuration validated successfully: {
+  ali_dashscope_api_key: &apos;***&apos;,
+  openai_api_key: &apos;***&apos;,
+  image_bind_model_path: &apos;D:\\sc-fixture\\store\\imagebind_huge\\imagebind_huge.pth&apos;,
+  base_storage_path: &apos;D:\\sc-fixture\\store&apos;,
+  ali_dashscope_base_url: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  openai_base_url: &apos;https://api.openai.com/v1&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  caption_model: &apos;qwen-vl-plus-latest&apos;,
+  asr_model: &apos;paraformer-realtime-v2&apos;
+}
+📡 API call: POST /initialize (timeout: 120000ms)
+✅ VideoRAG global configuration set successfully!
+
+            </system-out>
+            <failure message="The first attempt must finish before retry: expected &apos;pending&apos; to be &apos;rejected&apos; // Object.is equality" type="AssertionError">
+AssertionError: The first attempt must finish before retry: expected &apos;pending&apos; to be &apos;rejected&apos; // Object.is equality
+
+Expected: &quot;rejected&quot;
+Received: &quot;pending&quot;
+
+ ❯ startup.test.ts:37:75
+            </failure>
+            <failure message="expected 1 to be +0 // Object.is equality" type="AssertionError">
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ startup.test.ts:38:35
+            </failure>
+            <failure message="An expired attempt must not become successful later: expected &apos;fulfilled&apos; to be &apos;rejected&apos; // Object.is equality" type="AssertionError">
+AssertionError: An expired attempt must not become successful later: expected &apos;fulfilled&apos; to be &apos;rejected&apos; // Object.is equality
+
+Expected: &quot;rejected&quot;
+Received: &quot;fulfilled&quot;
+
+ ❯ startup.test.ts:44:84
+            </failure>
+            <failure message="Only the new attempt initializes: expected [ [ { method: &apos;POST&apos;, …(3) } ], …(1) ] to have a length of 1 but got 2" type="AssertionError">
+AssertionError: Only the new attempt initializes: expected [ [ { method: &apos;POST&apos;, …(3) } ], …(1) ] to have a length of 1 but got 2
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ startup.test.ts:45:74
+            </failure>
+        </testcase>
+        <testcase classname="startup.test.ts" name="TC-SC-002 / healthy backend with invalid configuration is not successful application startup" time="0.0372858">
+            <system-out>
+🚀 Development mode detected - skipping backend service startup
+💡 In development, scanning for manually started Python backend...
+⏳ Initial timeout reached, starting continuous service detection...
+🔍 Scanning attempt 1/1000000...
+🔍 Scanning for VideoRAG service on ports 64451-64470...
+✅ Health check successful on port 64451: { status: &apos;ok&apos; }
+🎯 Found healthy VideoRAG service on port 64451
+✅ Found service on port 64451 after 1 attempts!
+📡 Updated API base URL to: http://localhost:64451/api
+🔧 Loading VideoRAG configuration...
+📁 Bootstrap config not found, using defaults
+🔧 Loaded settings: {
+  openaiBaseUrl: &apos;https://api.openai.com/v1&apos;,
+  dashscopeBaseUrl: &apos;https://dashscope.aliyuncs.com/compatible-mode/v1&apos;,
+  processingModel: &apos;gpt-4o-mini&apos;,
+  analysisModel: &apos;gpt-4o-mini&apos;,
+  openaiApiKey: &apos;NOT_SET&apos;,
+  dashscopeApiKey: &apos;NOT_SET&apos;,
+  storeDirectory: &apos;&apos;
+}
+🔧 VideoRAG configuration validation: {
+  ali_dashscope_api_key: &apos;❌ MISSING&apos;,
+  ali_dashscope_base_url: &apos;✅ SET (default allowed)&apos;,
+  openai_api_key: &apos;❌ MISSING&apos;,
+  openai_base_url: &apos;✅ SET (default allowed)&apos;,
+  image_bind_model_path: &apos;❌ MISSING&apos;,
+  base_storage_path: &apos;❌ MISSING&apos;,
+  analysisModel: &apos;✅ SET (default allowed)&apos;,
+  processingModel: &apos;✅ SET (default allowed)&apos;,
+  caption_model: &apos;✅ SET (default allowed)&apos;,
+  asr_model: &apos;✅ SET (default allowed)&apos;
+}
+🛑 Stopping VideoRAG service due to configuration errors...
+
+            </system-out>
+            <system-err>
+❌ VideoRAG configuration validation failed!
+
+Missing required fields:
+  • Ali Dashscope API Key (dashscopeApiKey)
+  • OpenAI API Key (openaiApiKey)
+  • Base Storage Path (storeDirectory)
+  • ImageBind Model Path (storeDirectory + imagebind_huge/imagebind_huge.pth)
+
+Please run the initialization wizard to configure these settings.
+❌ VideoRAG configuration initialization failed: Error: Missing required configuration fields: Ali Dashscope API Key (dashscopeApiKey), OpenAI API Key (openaiApiKey), Base Storage Path (storeDirectory), ImageBind Model Path (storeDirectory + imagebind_huge/imagebind_huge.pth)
+    at initializeVideoRAGConfig (D:\Code\text\test-videorag\Vimo-desktop\src\main\handlers\videorag-handlers.ts:314:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+Configuration initialization failed, but service is running
+
+            </system-err>
+            <failure message="expected { success: true, …(1) } to match object { success: false }
+(1 matching property omitted from actual)" type="AssertionError">
+AssertionError: expected { success: true, …(1) } to match object { success: false }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  Object {
+-   &quot;success&quot;: false,
++   &quot;success&quot;: true,
+  }
+
+ ❯ startup.test.ts:55:24
+            </failure>
+        </testcase>
+    </testsuite>
+</testsuites>

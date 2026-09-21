@@ -1,0 +1,7 @@
+{
+  "name": "vimo-startup-configuration-tests",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node run_tests.cjs" },
+  "devDependencies": { "vitest": "2.1.9" }
+}

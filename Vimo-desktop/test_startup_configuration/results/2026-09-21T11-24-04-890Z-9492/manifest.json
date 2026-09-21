@@ -1,0 +1,53 @@
+{
+  "startedAt": "2026-09-21T11:24:04.895Z",
+  "node": "v22.13.1",
+  "platform": "win32",
+  "vitest": "2.1.9",
+  "vitestPackage": "D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_communication\\node_modules\\vitest\\package.json",
+  "commit": "442f7ae760b6f99bb53fea214b5f565b6a8c5a94",
+  "workingTree": "?? Vimo-desktop/test_startup_configuration/\n?? Vimo-desktop/test_video_query/",
+  "policy": {
+    "maxScanRounds": 3,
+    "startupBudgetMs": 60000
+  },
+  "sources": [
+    {
+      "path": "src/main/handlers/settings.ts",
+      "sha256": "f82c78fcb07a941fd2c0a16817575fad8e6cceb66885d6a48c83ae6aeb24c401"
+    },
+    {
+      "path": "src/main/handlers/videorag-handlers.ts",
+      "sha256": "a485902540f9d108abb8fe039db3bc25711608420316fe77e9984c4597cc273f"
+    }
+  ],
+  "tests": [
+    {
+      "path": "api_key_validation.test.ts",
+      "sha256": "c609073bc44e40c0305171fafc7b60fd5d7a5fdcc1b948fba7edac136585ec01"
+    },
+    {
+      "path": "configuration.test.ts",
+      "sha256": "a310a0bc3d7e23a9151bc8f307c16a48503f703e4c4726e9ef39add3980e88e8"
+    },
+    {
+      "path": "package.json",
+      "sha256": "e6c3c0a6141f666ec78b645158dfb479e3cc94f8857c025bbaa6afac33150d41"
+    },
+    {
+      "path": "run_tests.cjs",
+      "sha256": "7986fee2698373f3f891f5e398a72d1173b791a33f5d5f86985f3e0699cd181b"
+    },
+    {
+      "path": "startup.test.ts",
+      "sha256": "8bc0bfdcd5d203bcadbb912200029dd3b320c7ff72e134fb36d22cedf5d749c1"
+    },
+    {
+      "path": "support.ts",
+      "sha256": "b413ffe269992b1d57d5a9cccdf32794bb2ed8fe8d096ac391c66b663c67849e"
+    },
+    {
+      "path": "vitest.config.ts",
+      "sha256": "e2a184b30b523c887820a5fbf393f5734a06018c1743f1bb0e423c13611ea414"
+    }
+  ]
+}
