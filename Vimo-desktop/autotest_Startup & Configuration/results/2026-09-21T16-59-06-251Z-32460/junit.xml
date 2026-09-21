@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites><testsuite name="SC" tests="5" failures="1" errors="0" skipped="0"><testcase classname="StartupConfiguration" name="TC-SC-004 / invalid key with sk prefix must not be accepted" time="0.013587099999999993"><failure>AssertionError: expected true to be false // Object.is equality
+    at D:\file\file\华科\作业\软件质量测试\test-videorag\Vimo-desktop\autotest_Startup &amp; Configuration\api_key_validation.test.ts:14:26
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5
+    at runTest (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)
+    at runSuite (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)
+    at runFiles (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)
+    at startTests (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)
+    at file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+    at withEnv (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)
+    at run (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)</failure></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-003 / damaged configuration can be repaired and initialized again" time="0.01961419999999998"></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-005 / missing ImageBind model prevents initialization until restored" time="0.010275299999999987"></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-001 / missing backend executable prevents startup" time="0.04185219999999992"></testcase>
+<testcase classname="StartupConfiguration" name="TC-SC-002 / temporarily unavailable backend reconnects after service recovery" time="0.009455400000000055"></testcase></testsuite></testsuites>

@@ -1,0 +1,37 @@
+
+ RUN  v2.1.9 D:/file/file/华科/作业/软件质量测试/test-videorag/Vimo-desktop/autotest_Startup & Configuration
+
+ ✓ startup.test.ts > TC-SC-001 / missing backend executable prevents startup
+ ✓ startup.test.ts > TC-SC-002 / temporarily unavailable backend reconnects after service recovery
+ ✓ configuration.test.ts > TC-SC-003 / damaged configuration can be repaired and initialized again
+ ✓ configuration.test.ts > TC-SC-005 / missing ImageBind model prevents initialization until restored
+ × api_key_validation.test.ts > TC-SC-004 / invalid key with sk prefix must not be accepted
+   → expected true to be false // Object.is equality
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 4 passed (5)
+   Start at  01:02:53
+   Duration  859ms (transform 77ms, setup 57ms, collect 47ms, tests 87ms, environment 0ms, prepare 313ms)
+
+JSON report written to D:/file/file/华科/作业/软件质量测试/test-videorag/Vimo-desktop/autotest_Startup & Configuration/results/2026-09-21T17-02-52-858Z-4444/vitest.json
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  api_key_validation.test.ts > TC-SC-004 / invalid key with sk prefix must not be accepted
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ api_key_validation.test.ts:14:26
+     12|   const result = await handler('test-api-key')('sk-test-invalid')
+     13|   // Judge the functional outcome, not a specific transport or error w…
+     14|   expect(result.success).toBe(false)
+       |                          ^
+     15| })
+     16| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

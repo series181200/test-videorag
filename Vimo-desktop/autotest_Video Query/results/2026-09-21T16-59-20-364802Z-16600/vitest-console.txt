@@ -1,0 +1,12 @@
+
+ RUN  v2.1.9 D:/file/file/华科/作业/软件质量测试/test-videorag/Vimo-desktop/autotest_Video Query
+
+ ✓ query_recovery.test.tsx > TC-VQ-003 / timeout ends polling, preserves history and permits successful retry
+ ✓ query_submission.test.tsx > TC-VQ-004 / B waits for A and each question receives its own answer
+
+ Test Files  2 passed (2)
+      Tests  2 passed (2)
+   Start at  00:59:23
+   Duration  2.06s (transform 77ms, setup 390ms, collect 15ms, tests 49ms, environment 1.08s, prepare 233ms)
+
+JSON report written to D:/file/file/华科/作业/软件质量测试/test-videorag/Vimo-desktop/autotest_Video Query/results/2026-09-21T16-59-20-364802Z-16600/vitest.json

@@ -1,0 +1,54 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+____________ test_TC_VQ_002_nonexistent_session_cannot_start_query ____________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000021BDF3B2E90>
+
+    def test_TC_VQ_002_nonexistent_session_cannot_start_query(runtime):
+        assert not runtime.directory.exists(), "Fixture must start without this session"
+        response = runtime.query("视频里讲了什么？")
+>       assert {"client_error": 400 <= response.status_code < 500,
+                "success": response.get_json().get("success"),
+                "process_created": bool(runtime.processes),
+                "session_created": runtime.directory.exists()} == {
+                    "client_error": True, "success": False,
+                    "process_created": False, "session_created": False}
+E       AssertionError: assert {'client_erro...uccess': True} == {'client_erro...ccess': False}
+E         
+E         Differing items:
+E         {'client_error': False} != {'client_error': True}
+E         {'process_created': True} != {'process_created': False}
+E         {'success': True} != {'success': False}
+E         {'session_created': True} != {'session_created': False}
+E         Use -v to get more diff
+
+test_query_readiness.py:4: AssertionError
+____________ test_TC_VQ_001_whitespace_question_is_not_dispatched _____________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000021BDF45A950>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000021BDDF9A690>
+
+    def test_TC_VQ_001_whitespace_question_is_not_dispatched(runtime, monkeypatch):
+        runtime.prepare()
+        dispatch = MagicMock(return_value=True)
+        monkeypatch.setattr(runtime.manager, "start_query_processing", dispatch)
+        response = runtime.query("   ")
+        # Any reasonable client-error status is acceptable; exact wording is irrelevant.
+>       assert {"client_error": 400 <= response.status_code < 500,
+                "success": response.get_json().get("success"),
+                "dispatched": dispatch.called} == {
+                    "client_error": True, "success": False, "dispatched": False}
+E       AssertionError: assert {'client_erro...uccess': True} == {'client_erro...ccess': False}
+E         
+E         Differing items:
+E         {'client_error': False} != {'client_error': True}
+E         {'success': True} != {'success': False}
+E         {'dispatched': True} != {'dispatched': False}
+E         Use -v to get more diff
+
+test_query_validation.py:10: AssertionError
+- generated xml file: D:\file\file\华科\作业\软件质量测试\test-videorag\Vimo-desktop\autotest_Video Query\results\2026-09-21T16-59-20-364802Z-16600\pytest.xml -
+=========================== short test summary info ===========================
+FAILED test_query_readiness.py::test_TC_VQ_002_nonexistent_session_cannot_start_query
+FAILED test_query_validation.py::test_TC_VQ_001_whitespace_question_is_not_dispatched
+2 failed in 0.46s

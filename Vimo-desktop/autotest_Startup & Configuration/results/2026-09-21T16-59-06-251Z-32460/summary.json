@@ -1,0 +1,87 @@
+{
+  "finishedAt": "2026-09-21T16:59:09.464Z",
+  "exitCode": 1,
+  "infrastructureError": false,
+  "executed": 5,
+  "passed": 4,
+  "failed": 1,
+  "businessCases": [
+    {
+      "id": "TC-SC-001",
+      "expected": 1,
+      "collected": 1,
+      "passed": 1,
+      "failed": 0,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "TC-SC-001 / missing backend executable prevents startup",
+          "status": "passed",
+          "messages": []
+        }
+      ]
+    },
+    {
+      "id": "TC-SC-002",
+      "expected": 1,
+      "collected": 1,
+      "passed": 1,
+      "failed": 0,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "TC-SC-002 / temporarily unavailable backend reconnects after service recovery",
+          "status": "passed",
+          "messages": []
+        }
+      ]
+    },
+    {
+      "id": "TC-SC-003",
+      "expected": 1,
+      "collected": 1,
+      "passed": 1,
+      "failed": 0,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "TC-SC-003 / damaged configuration can be repaired and initialized again",
+          "status": "passed",
+          "messages": []
+        }
+      ]
+    },
+    {
+      "id": "TC-SC-004",
+      "expected": 1,
+      "collected": 1,
+      "passed": 0,
+      "failed": 1,
+      "status": "FAIL",
+      "checks": [
+        {
+          "name": "TC-SC-004 / invalid key with sk prefix must not be accepted",
+          "status": "failed",
+          "messages": [
+            "AssertionError: expected true to be false // Object.is equality\n    at D:\\file\\file\\华科\\作业\\软件质量测试\\test-videorag\\Vimo-desktop\\autotest_Startup & Configuration\\api_key_validation.test.ts:14:26\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:533:5\n    at runTest (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1056:11)\n    at runSuite (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1205:15)\n    at runFiles (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1262:5)\n    at startTests (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/@vitest/runner/dist/index.js:1271:3)\n    at file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:126:11\n    at withEnv (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:90:5)\n    at run (file:///D:/file/file/%E5%8D%8E%E7%A7%91/%E4%BD%9C%E4%B8%9A/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E6%B5%8B%E8%AF%95/test-videorag/Vimo-desktop/test_communication/node_modules/vitest/dist/chunks/runBaseTests.3qpJUEJM.js:112:3)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-SC-005",
+      "expected": 1,
+      "collected": 1,
+      "passed": 1,
+      "failed": 0,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "TC-SC-005 / missing ImageBind model prevents initialization until restored",
+          "status": "passed",
+          "messages": []
+        }
+      ]
+    }
+  ]
+}

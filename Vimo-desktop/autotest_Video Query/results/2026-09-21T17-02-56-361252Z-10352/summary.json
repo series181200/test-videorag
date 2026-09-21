@@ -1,0 +1,72 @@
+{
+  "exitCode": 1,
+  "infrastructureErrors": [],
+  "groups": [
+    {
+      "id": "TC-VQ-001",
+      "status": "FAIL",
+      "expected": 1,
+      "passed": 0,
+      "failed": 1,
+      "blockedBeforeWorker": 0
+    },
+    {
+      "id": "TC-VQ-002",
+      "status": "FAIL",
+      "expected": 1,
+      "passed": 0,
+      "failed": 1,
+      "blockedBeforeWorker": 0
+    },
+    {
+      "id": "TC-VQ-003",
+      "status": "PASS",
+      "expected": 1,
+      "passed": 1,
+      "failed": 0,
+      "blockedBeforeWorker": 0
+    },
+    {
+      "id": "TC-VQ-004",
+      "status": "PASS",
+      "expected": 1,
+      "passed": 1,
+      "failed": 0,
+      "blockedBeforeWorker": 0
+    }
+  ],
+  "checks": [
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-002",
+      "name": "test_TC_VQ_002_nonexistent_session_cannot_start_query",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002910A2B3790>\n\n    def test_TC_VQ_002_nonexistent_session_cannot_start_query(runtime):\n        assert not runtime.directory.exists(), \"Fixture must start without this session\"\n        response = runtime.query(\"视频里讲了什么？\")\n>       assert {\"client_error\": 400 <= response.status_code < 500,\n                \"success\": response.get_json().get(\"success\"),\n                \"process_created\": bool(runtime.processes),\n                \"session_created\": runtime.directory.exists()} == {\n                    \"client_error\": True, \"success\": False,\n                    \"process_created\": False, \"session_created\": False}\nE       AssertionError: assert {'client_erro...uccess': True} == {'client_erro...ccess': False}\nE         \nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'process_created': True} != {'process_created': False}\nE         {'session_created': True} != {'session_created': False}\nE         {'client_error': False} != {'client_error': True}\nE         Use -v to get more diff\n\ntest_query_readiness.py:4: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_TC_VQ_001_whitespace_question_is_not_dispatched",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002910A35AE10>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000029108EF26D0>\n\n    def test_TC_VQ_001_whitespace_question_is_not_dispatched(runtime, monkeypatch):\n        runtime.prepare()\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(\"   \")\n        # Any reasonable client-error status is acceptable; exact wording is irrelevant.\n>       assert {\"client_error\": 400 <= response.status_code < 500,\n                \"success\": response.get_json().get(\"success\"),\n                \"dispatched\": dispatch.called} == {\n                    \"client_error\": True, \"success\": False, \"dispatched\": False}\nE       AssertionError: assert {'client_erro...uccess': True} == {'client_erro...ccess': False}\nE         \nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'client_error': False} != {'client_error': True}\nE         {'dispatched': True} != {'dispatched': False}\nE         Use -v to get more diff\n\ntest_query_validation.py:10: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-003",
+      "name": "TC-VQ-003 / timeout ends polling, preserves history and permits successful retry",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-004",
+      "name": "TC-VQ-004 / B waits for A and each question receives its own answer",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    }
+  ]
+}

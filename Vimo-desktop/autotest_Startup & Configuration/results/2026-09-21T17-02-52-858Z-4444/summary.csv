@@ -1,0 +1,6 @@
+﻿ID,Status,Expected,Collected,Passed,Failed
+TC-SC-001,PASS,1,1,1,0
+TC-SC-002,PASS,1,1,1,0
+TC-SC-003,PASS,1,1,1,0
+TC-SC-004,FAIL,1,1,0,1
+TC-SC-005,PASS,1,1,1,0

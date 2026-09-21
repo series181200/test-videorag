@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.438" timestamp="2026-09-22T00:59:21.392951+08:00" hostname="李科橙"><testcase classname="test_query_readiness" name="test_TC_VQ_002_nonexistent_session_cannot_start_query" time="0.296"><failure message="AssertionError: assert {'client_erro...uccess': True} == {'client_erro...ccess': False}&#10;  &#10;  Differing items:&#10;  {'client_error': False} != {'client_error': True}&#10;  {'process_created': True} != {'process_created': False}&#10;  {'success': True} != {'success': False}&#10;  {'session_created': True} != {'session_created': False}&#10;  Use -v to get more diff">runtime = &lt;conftest.runtime.&lt;locals&gt;.Runtime object at 0x0000021BDF3B2E90&gt;
+
+    def test_TC_VQ_002_nonexistent_session_cannot_start_query(runtime):
+        assert not runtime.directory.exists(), "Fixture must start without this session"
+        response = runtime.query("视频里讲了什么？")
+&gt;       assert {"client_error": 400 &lt;= response.status_code &lt; 500,
+                "success": response.get_json().get("success"),
+                "process_created": bool(runtime.processes),
+                "session_created": runtime.directory.exists()} == {
+                    "client_error": True, "success": False,
+                    "process_created": False, "session_created": False}
+E       AssertionError: assert {'client_erro...uccess': True} == {'client_erro...ccess': False}
+E         
+E         Differing items:
+E         {'client_error': False} != {'client_error': True}
+E         {'process_created': True} != {'process_created': False}
+E         {'success': True} != {'success': False}
+E         {'session_created': True} != {'session_created': False}
+E         Use -v to get more diff
+
+test_query_readiness.py:4: AssertionError</failure></testcase><testcase classname="test_query_validation" name="test_TC_VQ_001_whitespace_question_is_not_dispatched" time="0.009"><failure message="AssertionError: assert {'client_erro...uccess': True} == {'client_erro...ccess': False}&#10;  &#10;  Differing items:&#10;  {'client_error': False} != {'client_error': True}&#10;  {'success': True} != {'success': False}&#10;  {'dispatched': True} != {'dispatched': False}&#10;  Use -v to get more diff">runtime = &lt;conftest.runtime.&lt;locals&gt;.Runtime object at 0x0000021BDF45A950&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000021BDDF9A690&gt;
+
+    def test_TC_VQ_001_whitespace_question_is_not_dispatched(runtime, monkeypatch):
+        runtime.prepare()
+        dispatch = MagicMock(return_value=True)
+        monkeypatch.setattr(runtime.manager, "start_query_processing", dispatch)
+        response = runtime.query("   ")
+        # Any reasonable client-error status is acceptable; exact wording is irrelevant.
+&gt;       assert {"client_error": 400 &lt;= response.status_code &lt; 500,
+                "success": response.get_json().get("success"),
+                "dispatched": dispatch.called} == {
+                    "client_error": True, "success": False, "dispatched": False}
+E       AssertionError: assert {'client_erro...uccess': True} == {'client_erro...ccess': False}
+E         
+E         Differing items:
+E         {'client_error': False} != {'client_error': True}
+E         {'success': True} != {'success': False}
+E         {'dispatched': True} != {'dispatched': False}
+E         Use -v to get more diff
+
+test_query_validation.py:10: AssertionError</failure></testcase></testsuite></testsuites>
