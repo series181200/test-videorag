@@ -3,6 +3,7 @@ import { electronAPI } from '@electron-toolkit/preload';
 
 // Define API types
 export interface VideoRAGAPI {
+  invoke: (channel: string, ...args: any[]) => Promise<any>;
   echoMessage: (message: string) => Promise<string>;
   readFile: () => Promise<{
     success: boolean;
@@ -128,7 +129,23 @@ export interface VideoRAGAPI {
 }
 
 // Custom API
+const genericInvokeChannels = new Set([
+  'videorag:initialize',
+  'videorag:system-status',
+  'videorag:session-status',
+  'videorag:list-indexed',
+  'videorag:get-status',
+  'videorag:health-check',
+]);
+
 const api: VideoRAGAPI = {
+  // Generic IPC entry used by renderer hooks for dynamically selected channels.
+  invoke: (channel: string, ...args: any[]) => {
+    if (!genericInvokeChannels.has(channel)) {
+      return Promise.reject(new Error(`IPC channel is not allowed: ${channel}`));
+    }
+    return ipcRenderer.invoke(channel, ...args);
+  },
   echoMessage: (message: string) => ipcRenderer.invoke('echo-message', message),
   readFile: () => ipcRenderer.invoke('read-file'),
   saveFile: (content: string) => ipcRenderer.invoke('save-file', content),

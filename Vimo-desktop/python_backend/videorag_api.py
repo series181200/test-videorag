@@ -342,7 +342,19 @@ class VideoRAGProcessManager:
         
     def set_global_config(self, config):
         """Set global configuration"""
-        log_to_file(f"🔄 Global config set: {config}")
+        def redact(value):
+            if isinstance(value, dict):
+                return {
+                    key: "***"
+                    if any(marker in str(key).lower() for marker in ("api_key", "token", "secret", "password"))
+                    else redact(item)
+                    for key, item in value.items()
+                }
+            if isinstance(value, list):
+                return [redact(item) for item in value]
+            return value
+
+        log_to_file(f"🔄 Global config set: {redact(config)}")
         self.global_config = config
         return True
         
@@ -429,26 +441,33 @@ class VideoRAGProcessManager:
             raise
             
     def terminate_process(self, chat_id):
-        """Terminate process"""
+        """Terminate every indexing and query process owned by a chat session."""
         terminated = []
-        
-        if chat_id in self.running_processes:
+
+        process_keys = [
+            process_key
+            for process_key, process_info in list(self.running_processes.items())
+            if process_key in (chat_id, f"{chat_id}_query")
+            or process_info.get("chat_id") == chat_id
+        ]
+
+        for process_key in process_keys:
             try:
-                process_info = self.running_processes[chat_id]
+                process_info = self.running_processes[process_key]
                 if process_info["process"].is_alive():
-                    log_to_file(f"🔥 Terminating process: {chat_id}")
+                    log_to_file(f"🔥 Terminating process: {process_key}")
                     process_info["process"].terminate()
                     process_info["process"].join(timeout=5)
                     
                     if process_info["process"].is_alive():
-                        log_to_file(f"💀 Force killing process: {chat_id}")
+                        log_to_file(f"💀 Force killing process: {process_key}")
                         process_info["process"].kill()
                         process_info["process"].join()
                         
-                terminated.append(chat_id)
-                del self.running_processes[chat_id]
+                terminated.append(process_key)
+                del self.running_processes[process_key]
             except Exception as e:
-                log_to_file(f"⚠️ Process termination failed {chat_id}: {str(e)}")
+                log_to_file(f"⚠️ Process termination failed {process_key}: {str(e)}")
         
         # Update status file
         if self.global_config:
@@ -1439,4 +1458,4 @@ if __name__ == '__main__':
         cleanup_on_exit()
         exit(1)
     finally:
-        cleanup_on_exit() 
+        cleanup_on_exit()
