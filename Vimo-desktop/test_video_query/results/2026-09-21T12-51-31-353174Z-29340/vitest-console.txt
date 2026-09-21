@@ -1,0 +1,56 @@
+
+ RUN  v2.1.9 D:/Code/text/test-videorag/Vimo-desktop/test_video_query
+
+ × query_submission.test.tsx > TC-VQ-001 / blank "" never dispatches a query
+   → Cannot read properties of null (reading 'useRef')
+ × query_submission.test.tsx > TC-VQ-001 / blank "   " never dispatches a query
+   → Cannot read properties of null (reading 'useRef')
+ × query_submission.test.tsx > TC-VQ-001 / blank "\n" never dispatches a query
+   → Cannot read properties of null (reading 'useRef')
+ × query_submission.test.tsx > TC-VQ-001 / blank "\t" never dispatches a query
+   → Cannot read properties of null (reading 'useRef')
+ × query_submission.test.tsx > TC-VQ-001 / blank " \n\t " never dispatches a query
+   → Cannot read properties of null (reading 'useRef')
+ × query_submission.test.tsx > TC-VQ-001 / valid question is trimmed and dispatched once
+   → Cannot read properties of null (reading 'useRef')
+ × query_submission.test.tsx > TC-VQ-002 / none session cannot submit a model query
+   → Cannot read properties of null (reading 'useRef')
+ × query_submission.test.tsx > TC-VQ-002 / analyzing session cannot submit a model query
+   → Cannot read properties of null (reading 'useRef')
+ × query_submission.test.tsx > TC-VQ-004 / B is blocked during A then answers stay paired after retry
+   → Cannot read properties of null (reading 'useRef')
+ × query_recovery.test.tsx > TC-VQ-003 / timeout ends polling, preserves history and permits successful retry
+   → Cannot read properties of null (reading 'useRef')
+
+ Test Files  2 failed (2)
+      Tests  10 failed (10)
+   Start at  20:51:38
+   Duration  21.37s (transform 175ms, setup 4.75s, collect 33ms, tests 103ms, environment 14.86s, prepare 988ms)
+
+JSON report written to D:/Code/text/test-videorag/Vimo-desktop/test_video_query/results/2026-09-21T12-51-31-353174Z-29340/vitest.json
+⎯⎯⎯⎯⎯⎯ Failed Tests 10 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  query_recovery.test.tsx > TC-VQ-003 / timeout ends polling, preserves history and permits successful retry
+ FAIL  query_submission.test.tsx > TC-VQ-001 / blank "" never dispatches a query
+ FAIL  query_submission.test.tsx > TC-VQ-001 / blank "   " never dispatches a query
+ FAIL  query_submission.test.tsx > TC-VQ-001 / blank "\n" never dispatches a query
+ FAIL  query_submission.test.tsx > TC-VQ-001 / blank "\t" never dispatches a query
+ FAIL  query_submission.test.tsx > TC-VQ-001 / blank " \n\t " never dispatches a query
+ FAIL  query_submission.test.tsx > TC-VQ-001 / valid question is trimmed and dispatched once
+ FAIL  query_submission.test.tsx > TC-VQ-002 / none session cannot submit a model query
+ FAIL  query_submission.test.tsx > TC-VQ-002 / analyzing session cannot submit a model query
+ FAIL  query_submission.test.tsx > TC-VQ-004 / B is blocked during A then answers stay paired after retry
+TypeError: Cannot read properties of null (reading 'useRef')
+ ❯ Module.useRef ../node_modules/react/cjs/react.development.js:1630:21
+ ❯ MemoryRouter ../node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27
+ ❯ renderWithHooks ../test_renderer/node_modules/react-dom/cjs/react-dom.development.js:15486:18
+ ❯ mountIndeterminateComponent ../test_renderer/node_modules/react-dom/cjs/react-dom.development.js:20103:13
+ ❯ beginWork ../test_renderer/node_modules/react-dom/cjs/react-dom.development.js:21626:16
+ ❯ beginWork$1 ../test_renderer/node_modules/react-dom/cjs/react-dom.development.js:27465:14
+ ❯ performUnitOfWork ../test_renderer/node_modules/react-dom/cjs/react-dom.development.js:26599:12
+ ❯ workLoopSync ../test_renderer/node_modules/react-dom/cjs/react-dom.development.js:26505:5
+ ❯ renderRootSync ../test_renderer/node_modules/react-dom/cjs/react-dom.development.js:26473:7
+ ❯ recoverFromConcurrentError ../test_renderer/node_modules/react-dom/cjs/react-dom.development.js:25889:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/10]⎯
+

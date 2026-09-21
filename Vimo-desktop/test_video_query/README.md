@@ -2,7 +2,24 @@
 
 本目录负责模块二 AI 融合实践中的 Video Query（视频内容查询）业务链路，覆盖 `TC-VQ-001` 至 `TC-VQ-004`。重点验证查询准入、模型超时后恢复和同会话连续提问时的任务隔离。
 
-当前仅建立测试规划文档，尚未编写测试脚本、配置文件或运行入口，尚无执行结果。以下源码观察来自静态阅读，不等同于已复现缺陷。
+已实现 4 个业务用例、22 个自动化检查：pytest 12 个、Vitest 10 个。两种框架在独立进程中执行，按同一业务 ID 汇总。业务源码未修改，失败断言和被前置问题阻断的检查均保留。
+
+在仓库根目录一键运行：
+
+```powershell
+python Vimo-desktop/test_video_query/run_tests.py
+```
+
+也可执行 `npm.cmd test --prefix Vimo-desktop/test_video_query`。运行器先执行 pytest，即使失败也会继续执行 Vitest。依赖缺失时安装：
+
+```powershell
+python -m pip install -r Vimo-desktop/test_video_query/requirements-test.txt
+npm.cmd install --prefix Vimo-desktop/test_video_query
+```
+
+本次使用已安装的 Python 依赖及 `test_renderer/node_modules`，没有安装包或修改其他目录锁文件。Vitest 固定为 2.1.9；React、React DOM、React Router、Testing Library 必须来自同一依赖目录，避免出现两个 React 实例导致 Invalid Hook Call。
+
+每次运行保存到独立的 `results/<UTC时间戳>-<进程号>/`：包含原始 pytest XML、Vitest JSON、两份控制台日志、源码和测试哈希、命令及环境记录、业务汇总 JSON/CSV 和合并 JUnit XML。退出码 0 表示全部通过，1 表示有失败或未完成检查，2 表示依赖、收集或运行异常。
 
 ## 范围与框架约定
 
@@ -36,7 +53,7 @@
 - 构造三个独立状态：会话目录不存在；会话存在但无已完成索引；`indexing_status.status = processing`。
 - 每个状态直接请求后端，检查拒绝结果、`multiprocessing.Process` 未创建/启动，以及没有写入新的查询 processing 状态。
 - 对不存在会话，额外检查请求没有为了读取状态而创建出一个新的会话目录。
-- 建议接口约定：不存在返回 404；存在但未就绪返回 409；索引完成的对照用例可正常启动。404/409 是实施前应固定的目标，不代表当前源码行为。
+- 本次采用的接口验收约定：不存在返回 404；存在但未就绪返回 409；索引完成的对照用例可正常启动。404/409 是测试目标，不代表当前源码行为。
 - 准入测试保留实际路由和管理器，不将管理器整体替换为“永远拒绝”的 Mock，否则无法验证准入逻辑。
 - 使用 `tmp_path` 准备会话状态，替换 Process 等外部依赖，不真正创建模型工作进程。
 
@@ -64,31 +81,36 @@
 - Python 入口：查询路由、`start_query_processing`、`running_processes`。
 - TypeScript 入口：真实查询提交和答案展示逻辑。
 - 框架：pytest + Vitest。
-- 为控制本阶段范围，建议固定为“同会话只允许一个活动查询，A 完成前拒绝 B”，接口建议返回 409。该策略是拟采用的验收约定；若团队选择排队或并行，需先整体改写本用例预期，不能运行后任选一个结果算通过。
+- 本次采用“同会话只允许一个活动查询，A 完成前拒绝 B”，接口返回 409 作为验收约定。若团队以后选择排队或并行，需先整体改写预期，不能运行后任选一个结果算通过。
 - 使用两个可控的假进程对象，A 启动后保持存活，然后绕过 UI 再向后端提交 B。
 - 检查 B 被拒绝、不启动第二个进程；A 的登记对象及 query 状态不被 B 覆盖，A 仍可完成并返回其自己的答案。
 - A 完成后再次提交 B，应允许启动并显示 B 的答案；两个问题和结果应保持正确对应。
 - Vitest 验证重复提交不能产生错位的消息或答案；只证明 UI 按钮被禁用，不代表后端并发保护已经通过。
 - 当前后端使用 `f'{chat_id}_query'` 作为进程登记键，需验证重复启动是否覆盖原记录；不能通过 Mock 字典写入或整个管理器来掩盖问题。
 
-## 拟新增文件
+## 已实现文件
 
-以下是实施阶段的文件规划，当前均未创建：
+当前目录结构：
 
 ```text
 test_video_query/
   README.md
+  run_tests.py              # 两种框架的运行、证据保存和业务汇总
+  package.json
+  requirements-test.txt
   pytest.ini
   conftest.py
+  python_support.py         # 前置失败标记与公共断言
   test_query_validation.py   # TC-VQ-001
   test_query_readiness.py    # TC-VQ-002
   test_query_recovery.py     # TC-VQ-003 的 Python 检查
   test_query_concurrency.py  # TC-VQ-004 的 Python 检查
   vitest.config.ts
+  renderer_support.tsx      # 真实 hook 的挂载与 IPC 会话替身
   query_recovery.test.tsx    # TC-VQ-003 的界面检查
   query_submission.test.tsx  # TC-VQ-001、002、004 的界面补充
-  evidence/                 # 实施时保存 AI 对话与审核记录
-  results/                  # 实施时保存原始测试结果
+  evidence/                 # 实施、调试与结果说明
+  results/                  # 每轮测试的原始证据
 ```
 
 测试名称携带完整业务 ID。参数化子场景使用 `TC-VQ-002 / indexing-in-progress` 等名称，保持用户确定的编号。
@@ -104,13 +126,34 @@ test_video_query/
 7. 对 stateful 场景使用事件和可控回调确定顺序，不依赖任意 sleep。每段等待设置保护上限，避免失败测试挂起。
 8. 状态写入可能自身存在缺陷。正式业务测试保留真实失败并注明根因；为分析其他逻辑而临时替换状态写入的诊断测试，不能替代正式业务验收。
 
-## 实施顺序与运行约定
+## 实现边界与运行约定
 
-先用 TC-VQ-001 建立后端 fixture，再做 002 和 004；最后完成 003 的失败 → 清理 → 重试全流程及对应 Vitest 检查。
+pytest 的空白查询检查隔离管理器调度方法，专门验证真实路由是否在调用管理器前拒绝输入；其他准入、恢复和并发检查使用真实管理器。正常输入对照分别验证路由下发与真实进程启动，不能把前者通过当作后者通过。
 
-当前没有可运行入口。后续 Python 使用 `python -m pytest -c <本目录的 pytest.ini> <本目录>`；TypeScript 使用 `vitest run --config <本目录的 vitest.config.ts>`。这些是配置落地后的调用形式，不是当前可直接执行的命令。创建配置并验证后，再补齐完整命令、工作目录和安装步骤。
+Python 使用临时目录真实读写状态文件。`ControlledProcess.start()` 只记录进程状态，`run()` 才调用真实 worker，并在 finally 中模拟进程退出；模型和 ImageBind 是依赖替身。因此检查证明的是业务调度与状态逻辑，不是操作系统真实进程回收或真实模型执行。
 
-Python 依赖参考 `requirements-unified-tests.txt`，TypeScript 依赖参考 `test_renderer/package.json`。两种框架独立运行并按业务 ID 汇总，避免各自的依赖替身互相污染。业务代码修复后再运行受影响的阶段一回归。
+Vitest 实际执行 `useChat`、路由参数读取及 `utils/chat.ts` 的消息增删改和事件刷新；会话上下文、索引背景元数据和 IPC 是受控依赖。测试断言真实 hook 返回的消息和等待状态，不使用手写查询状态机，不声称覆盖整个 App、真实按钮展示或 IPC 到 Python 的联调。轮询通过 fake timers 推进，测试内确认终态后不会继续轮询。
+
+有必要单独排查 Python 时，在仓库根目录执行：
+
+```powershell
+python -m pytest -c Vimo-desktop/test_video_query/pytest.ini Vimo-desktop/test_video_query -q
+```
+
+完整验收与留档使用本页的一键运行入口。每个 ID 的预期收集数由运行器固定检查，新增或删除检查时需同步更新 `EXPECTED`。前置启动失败用 `BLOCKED_BEFORE_WORKER` 标记，仍保留为失败，不作为 skip，也不能据此确认后续恢复/并发逻辑有缺陷。
+
+## 当前验证结果
+
+环境：Windows、Python 3.12.7、pytest 7.4.4、Node.js 22.13.1、Vitest 2.1.9。最终有效运行的报告位置见 [实施记录](evidence/implementation.md)。
+
+| 业务 ID | pytest 通过/检查 | Vitest 通过/检查 | 业务结论 |
+| --- | --- | --- | --- |
+| TC-VQ-001 | 1/6 | 6/6 | 后端路由仍下发空白问题；前端不下发空白问题，合法 trim 对照通过 |
+| TC-VQ-002 | 0/4 | 2/2 | 后端不存在会话可被意外创建并启动；未就绪会话拒绝结果不符合约定；正常启动对照被状态覆盖失败阻断 |
+| TC-VQ-003 | 0/1 | 1/1 | 前端超时反馈、停止轮询、保留历史、成功重试通过；后端尚未执行到模型超时路径 |
+| TC-VQ-004 | 0/1 | 1/1 | 前端连续提问和答案对应检查通过；后端尚未执行到第二次提问的并发保护 |
+
+总计 22 个检查，11 通过、11 失败，其中 3 个失败明确发生在 worker 启动前。当前 Windows 环境中，对已有状态文件执行 `os.rename` 引发 WinError 183，阻断了正常查询启动以及恢复/并发测试的后续步骤。没有替换真实状态写入来掩盖这个问题。11 个失败不能记为 11 个独立缺陷，恢复和并发也不能记为已完成后端验证。
 
 ## AI 实践记录与完成标准
 

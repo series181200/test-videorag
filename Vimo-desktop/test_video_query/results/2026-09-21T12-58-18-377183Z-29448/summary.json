@@ -1,0 +1,216 @@
+{
+  "exitCode": 1,
+  "infrastructureErrors": [],
+  "groups": [
+    {
+      "id": "TC-VQ-001",
+      "status": "FAIL",
+      "expected": 12,
+      "passed": 7,
+      "failed": 5,
+      "blockedBeforeWorker": 0
+    },
+    {
+      "id": "TC-VQ-002",
+      "status": "FAIL",
+      "expected": 6,
+      "passed": 2,
+      "failed": 4,
+      "blockedBeforeWorker": 1
+    },
+    {
+      "id": "TC-VQ-003",
+      "status": "FAIL",
+      "expected": 2,
+      "passed": 1,
+      "failed": 1,
+      "blockedBeforeWorker": 1
+    },
+    {
+      "id": "TC-VQ-004",
+      "status": "FAIL",
+      "expected": 2,
+      "passed": 1,
+      "failed": 1,
+      "blockedBeforeWorker": 1
+    }
+  ],
+  "checks": [
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-004",
+      "name": "test_TC_VQ_004_busy_session_rejects_B_preserves_A_then_accepts_B",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FCF16030>\nmodel = <MagicMock id='2856125185104'>\n\n    def test_TC_VQ_004_busy_session_rejects_B_preserves_A_then_accepts_B(runtime, model):\n        runtime.prepare()\n        model.side_effect = lambda query, param: \"answer to \" + query\n>       first = require_started(runtime.query(\"question A\"), runtime)\n\ntest_query_concurrency.py:7: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nresponse = <WrapperTestResponse 573 bytes [500 INTERNAL SERVER ERROR]>\nruntime = <conftest.runtime.<locals>.Runtime object at 0x00000298FCF16030>\n\n    def require_started(response, runtime):\n>       assert response.status_code == 200, (\n            \"BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this \"\n            f\"to model recovery or concurrency yet. Response: {response.get_json()}\"\n        )\nE       AssertionError: BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this to model recovery or concurrency yet. Response: {'error': \"Query error: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-58-18-377183Z-29448\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_004_busy_session_re0\\\\\\\\chat-vq-session\\\\\\\\status.json.tmp' -> 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-58-18-377183Z-29448\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_004_busy_session_re0\\\\\\\\chat-vq-session\\\\\\\\status.json'\", 'success': False}\n\npython_support.py:5: AssertionError",
+      "blockedBeforeWorker": true
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-002",
+      "name": "test_query_requires_ready_session[TC-VQ-002-missing]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FE56EB40>\nstate = 'missing', expected = 404\n\n    @pytest.mark.parametrize(\"state,expected\", [(\"missing\", 404), (\"none\", 409), (\"processing\", 409)],\n                             ids=[\"TC-VQ-002-missing\", \"TC-VQ-002-unindexed\", \"TC-VQ-002-indexing\"])\n    def test_query_requires_ready_session(runtime, state, expected):\n        if state != \"missing\":\n            runtime.prepare(state)\n        before = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n        response = runtime.query(\"question\")\n        after = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n>       assert {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                \"created_processes\": len(runtime.processes), \"state_unchanged\": after == before,\n                \"directory_exists\": runtime.directory.exists()} == {\n                    \"http\": expected, \"success\": False, \"created_processes\": 0,\n                    \"state_unchanged\": True, \"directory_exists\": state != \"missing\"}\nE       AssertionError: assert {'created_pro...': False, ...} == {'created_pro...d': True, ...}\nE         Differing items:\nE         {'http': 200} != {'http': 404}\nE         {'created_processes': 1} != {'created_processes': 0}\nE         {'directory_exists': True} != {'directory_exists': False}\nE         {'state_unchanged': False} != {'state_unchanged': True}\nE         {'success': True} != {'success': False}\nE         Use -v to get more diff\n\ntest_query_readiness.py:13: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-002",
+      "name": "test_query_requires_ready_session[TC-VQ-002-unindexed]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FE5F4F80>\nstate = 'none', expected = 409\n\n    @pytest.mark.parametrize(\"state,expected\", [(\"missing\", 404), (\"none\", 409), (\"processing\", 409)],\n                             ids=[\"TC-VQ-002-missing\", \"TC-VQ-002-unindexed\", \"TC-VQ-002-indexing\"])\n    def test_query_requires_ready_session(runtime, state, expected):\n        if state != \"missing\":\n            runtime.prepare(state)\n        before = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n        response = runtime.query(\"question\")\n        after = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n>       assert {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                \"created_processes\": len(runtime.processes), \"state_unchanged\": after == before,\n                \"directory_exists\": runtime.directory.exists()} == {\n                    \"http\": expected, \"success\": False, \"created_processes\": 0,\n                    \"state_unchanged\": True, \"directory_exists\": state != \"missing\"}\nE       AssertionError: assert {'created_pro...d': True, ...} == {'created_pro...d': True, ...}\nE         Omitting 4 identical items, use -vv to show\nE         Differing items:\nE         {'http': 500} != {'http': 409}\nE         Use -v to get more diff\n\ntest_query_readiness.py:13: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-002",
+      "name": "test_query_requires_ready_session[TC-VQ-002-indexing]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FE60B4A0>\nstate = 'processing', expected = 409\n\n    @pytest.mark.parametrize(\"state,expected\", [(\"missing\", 404), (\"none\", 409), (\"processing\", 409)],\n                             ids=[\"TC-VQ-002-missing\", \"TC-VQ-002-unindexed\", \"TC-VQ-002-indexing\"])\n    def test_query_requires_ready_session(runtime, state, expected):\n        if state != \"missing\":\n            runtime.prepare(state)\n        before = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n        response = runtime.query(\"question\")\n        after = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n>       assert {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                \"created_processes\": len(runtime.processes), \"state_unchanged\": after == before,\n                \"directory_exists\": runtime.directory.exists()} == {\n                    \"http\": expected, \"success\": False, \"created_processes\": 0,\n                    \"state_unchanged\": True, \"directory_exists\": state != \"missing\"}\nE       AssertionError: assert {'created_pro...d': True, ...} == {'created_pro...d': True, ...}\nE         Omitting 4 identical items, use -vv to show\nE         Differing items:\nE         {'http': 500} != {'http': 409}\nE         Use -v to get more diff\n\ntest_query_readiness.py:13: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-002",
+      "name": "test_TC_VQ_002_completed_session_can_start_query",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FA3B1700>\n\n    def test_TC_VQ_002_completed_session_can_start_query(runtime):\n        runtime.prepare()\n>       process = require_started(runtime.query(\"question\"), runtime)\n\ntest_query_readiness.py:22: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nresponse = <WrapperTestResponse 573 bytes [500 INTERNAL SERVER ERROR]>\nruntime = <conftest.runtime.<locals>.Runtime object at 0x00000298FA3B1700>\n\n    def require_started(response, runtime):\n>       assert response.status_code == 200, (\n            \"BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this \"\n            f\"to model recovery or concurrency yet. Response: {response.get_json()}\"\n        )\nE       AssertionError: BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this to model recovery or concurrency yet. Response: {'error': \"Query error: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-58-18-377183Z-29448\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_002_completed_sessi0\\\\\\\\chat-vq-session\\\\\\\\status.json.tmp' -> 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-58-18-377183Z-29448\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_002_completed_sessi0\\\\\\\\chat-vq-session\\\\\\\\status.json'\", 'success': False}\n\npython_support.py:5: AssertionError",
+      "blockedBeforeWorker": true
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-003",
+      "name": "test_TC_VQ_003_timeout_clears_active_answer_and_allows_retry",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FE5F4500>\nmodel = <MagicMock id='2856125392000'>\n\n    def test_TC_VQ_003_timeout_clears_active_answer_and_allows_retry(runtime, model):\n        runtime.prepare(old_answer=\"old answer\")\n        model.side_effect = TimeoutError(\"model timed out\")\n>       process = require_started(runtime.query(\"failing question\"), runtime)\n\ntest_query_recovery.py:7: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nresponse = <WrapperTestResponse 573 bytes [500 INTERNAL SERVER ERROR]>\nruntime = <conftest.runtime.<locals>.Runtime object at 0x00000298FE5F4500>\n\n    def require_started(response, runtime):\n>       assert response.status_code == 200, (\n            \"BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this \"\n            f\"to model recovery or concurrency yet. Response: {response.get_json()}\"\n        )\nE       AssertionError: BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this to model recovery or concurrency yet. Response: {'error': \"Query error: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-58-18-377183Z-29448\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_003_timeout_clears_0\\\\\\\\chat-vq-session\\\\\\\\status.json.tmp' -> 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-58-18-377183Z-29448\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_003_timeout_clears_0\\\\\\\\chat-vq-session\\\\\\\\status.json'\", 'success': False}\n\npython_support.py:5: AssertionError",
+      "blockedBeforeWorker": true
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_blank_query_is_rejected_before_dispatch[TC-VQ-001-empty]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FE652930>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000298FE56E300>\nquery = ''\n\n    @pytest.mark.parametrize(\"query\", [\"\", \"   \", \"\\n\", \"\\t\", \" \\n\\t \"],\n                             ids=[\"TC-VQ-001-empty\", \"TC-VQ-001-spaces\", \"TC-VQ-001-newline\", \"TC-VQ-001-tab\", \"TC-VQ-001-mixed\"])\n    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):\n        before = runtime.prepare()\n        # Narrow route-contract check. Real manager integration is exercised separately.\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(query)\n        observed = {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                    \"dispatches\": dispatch.call_count, \"processes\": len(runtime.processes),\n                    \"state\": runtime.status()}\n>       assert observed == {\"http\": 400, \"success\": False, \"dispatches\": 0, \"processes\": 0, \"state\": before}\nE       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}\nE         Omitting 2 identical items, use -vv to show\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'http': 200} != {'http': 400}\nE         {'dispatches': 1} != {'dispatches': 0}\nE         Use -v to get more diff\n\ntest_query_validation.py:16: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_blank_query_is_rejected_before_dispatch[TC-VQ-001-spaces]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FE6B5CD0>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000298FE692570>\nquery = '   '\n\n    @pytest.mark.parametrize(\"query\", [\"\", \"   \", \"\\n\", \"\\t\", \" \\n\\t \"],\n                             ids=[\"TC-VQ-001-empty\", \"TC-VQ-001-spaces\", \"TC-VQ-001-newline\", \"TC-VQ-001-tab\", \"TC-VQ-001-mixed\"])\n    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):\n        before = runtime.prepare()\n        # Narrow route-contract check. Real manager integration is exercised separately.\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(query)\n        observed = {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                    \"dispatches\": dispatch.call_count, \"processes\": len(runtime.processes),\n                    \"state\": runtime.status()}\n>       assert observed == {\"http\": 400, \"success\": False, \"dispatches\": 0, \"processes\": 0, \"state\": before}\nE       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}\nE         Omitting 2 identical items, use -vv to show\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'http': 200} != {'http': 400}\nE         {'dispatches': 1} != {'dispatches': 0}\nE         Use -v to get more diff\n\ntest_query_validation.py:16: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_blank_query_is_rejected_before_dispatch[TC-VQ-001-newline]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FD0E1CA0>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000298FE6D5670>\nquery = '\\n'\n\n    @pytest.mark.parametrize(\"query\", [\"\", \"   \", \"\\n\", \"\\t\", \" \\n\\t \"],\n                             ids=[\"TC-VQ-001-empty\", \"TC-VQ-001-spaces\", \"TC-VQ-001-newline\", \"TC-VQ-001-tab\", \"TC-VQ-001-mixed\"])\n    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):\n        before = runtime.prepare()\n        # Narrow route-contract check. Real manager integration is exercised separately.\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(query)\n        observed = {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                    \"dispatches\": dispatch.call_count, \"processes\": len(runtime.processes),\n                    \"state\": runtime.status()}\n>       assert observed == {\"http\": 400, \"success\": False, \"dispatches\": 0, \"processes\": 0, \"state\": before}\nE       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}\nE         Omitting 2 identical items, use -vv to show\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'http': 200} != {'http': 400}\nE         {'dispatches': 1} != {'dispatches': 0}\nE         Use -v to get more diff\n\ntest_query_validation.py:16: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_blank_query_is_rejected_before_dispatch[TC-VQ-001-tab]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FE717B30>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000298FE714E30>\nquery = '\\t'\n\n    @pytest.mark.parametrize(\"query\", [\"\", \"   \", \"\\n\", \"\\t\", \" \\n\\t \"],\n                             ids=[\"TC-VQ-001-empty\", \"TC-VQ-001-spaces\", \"TC-VQ-001-newline\", \"TC-VQ-001-tab\", \"TC-VQ-001-mixed\"])\n    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):\n        before = runtime.prepare()\n        # Narrow route-contract check. Real manager integration is exercised separately.\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(query)\n        observed = {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                    \"dispatches\": dispatch.call_count, \"processes\": len(runtime.processes),\n                    \"state\": runtime.status()}\n>       assert observed == {\"http\": 400, \"success\": False, \"dispatches\": 0, \"processes\": 0, \"state\": before}\nE       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}\nE         Omitting 2 identical items, use -vv to show\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'http': 200} != {'http': 400}\nE         {'dispatches': 1} != {'dispatches': 0}\nE         Use -v to get more diff\n\ntest_query_validation.py:16: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_blank_query_is_rejected_before_dispatch[TC-VQ-001-mixed]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x00000298FE6B4CE0>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000298FE6B6990>\nquery = ' \\n\\t '\n\n    @pytest.mark.parametrize(\"query\", [\"\", \"   \", \"\\n\", \"\\t\", \" \\n\\t \"],\n                             ids=[\"TC-VQ-001-empty\", \"TC-VQ-001-spaces\", \"TC-VQ-001-newline\", \"TC-VQ-001-tab\", \"TC-VQ-001-mixed\"])\n    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):\n        before = runtime.prepare()\n        # Narrow route-contract check. Real manager integration is exercised separately.\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(query)\n        observed = {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                    \"dispatches\": dispatch.call_count, \"processes\": len(runtime.processes),\n                    \"state\": runtime.status()}\n>       assert observed == {\"http\": 400, \"success\": False, \"dispatches\": 0, \"processes\": 0, \"state\": before}\nE       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}\nE         Omitting 2 identical items, use -vv to show\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'http': 200} != {'http': 400}\nE         {'dispatches': 1} != {'dispatches': 0}\nE         Use -v to get more diff\n\ntest_query_validation.py:16: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_TC_VQ_001_valid_query_is_trimmed_and_dispatched_once",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-003",
+      "name": "TC-VQ-003 / timeout ends polling, preserves history and permits successful retry",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / blank \"\" never dispatches a query",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / blank \"   \" never dispatches a query",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / blank \"\\n\" never dispatches a query",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / blank \"\\t\" never dispatches a query",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / blank \" \\n\\t \" never dispatches a query",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / valid question is trimmed and dispatched once",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-002",
+      "name": "TC-VQ-002 / none session cannot submit a model query",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-002",
+      "name": "TC-VQ-002 / analyzing session cannot submit a model query",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-004",
+      "name": "TC-VQ-004 / B is blocked during A then answers stay paired after retry",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    }
+  ]
+}

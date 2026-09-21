@@ -1,0 +1,305 @@
+FFFFFFFFFFF.                                                             [100%]
+================================== FAILURES ===================================
+______ test_TC_VQ_004_busy_session_rejects_B_preserves_A_then_accepts_B _______
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E381FBE30>
+model = <MagicMock id='1710378344112'>
+
+    def test_TC_VQ_004_busy_session_rejects_B_preserves_A_then_accepts_B(runtime, model):
+        runtime.prepare()
+        model.side_effect = lambda query, param: "answer to " + query
+>       first = require_started(runtime.query("question A"), runtime)
+
+test_query_concurrency.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+response = <WrapperTestResponse 573 bytes [500 INTERNAL SERVER ERROR]>
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E381FBE30>
+
+    def require_started(response, runtime):
+>       assert response.status_code == 200, (
+            "BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this "
+            f"to model recovery or concurrency yet. Response: {response.get_json()}"
+        )
+E       AssertionError: BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this to model recovery or concurrency yet. Response: {'error': "Query error: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:\\\\Code\\\\text\\\\test-videorag\\\\Vimo-desktop\\\\test_video_query\\\\results\\\\2026-09-21T12-53-07-136224Z-23140\\\\pytest-temp\\\\test_TC_VQ_004_busy_session_re0\\\\chat-vq-session\\\\status.json.tmp' -> 'D:\\\\Code\\\\text\\\\test-videorag\\\\Vimo-desktop\\\\test_video_query\\\\results\\\\2026-09-21T12-53-07-136224Z-23140\\\\pytest-temp\\\\test_TC_VQ_004_busy_session_re0\\\\chat-vq-session\\\\status.json'", 'success': False}
+E       assert 500 == 200
+E        +  where 500 = <WrapperTestResponse streamed [500 INTERNAL SERVER ERROR]>.status_code
+
+conftest.py:147: AssertionError
+____________ test_query_requires_ready_session[TC-VQ-002-missing] _____________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3A868680>
+state = 'missing', expected = 404
+
+    @pytest.mark.parametrize("state,expected", [("missing", 404), ("none", 409), ("processing", 409)],
+                             ids=["TC-VQ-002-missing", "TC-VQ-002-unindexed", "TC-VQ-002-indexing"])
+    def test_query_requires_ready_session(runtime, state, expected):
+        if state != "missing":
+            runtime.prepare(state)
+        before = runtime.status_file.read_bytes() if runtime.status_file.exists() else None
+        response = runtime.query("question")
+        after = runtime.status_file.read_bytes() if runtime.status_file.exists() else None
+>       assert {"http": response.status_code, "success": response.get_json().get("success"),
+                "created_processes": len(runtime.processes), "state_unchanged": after == before,
+                "directory_exists": runtime.directory.exists()} == {
+                    "http": expected, "success": False, "created_processes": 0,
+                    "state_unchanged": True, "directory_exists": state != "missing"}
+E       AssertionError: assert {'created_pro...': False, ...} == {'created_pro...d': True, ...}
+E         Differing items:
+E         {'success': True} != {'success': False}
+E         {'directory_exists': True} != {'directory_exists': False}
+E         {'created_processes': 1} != {'created_processes': 0}
+E         {'state_unchanged': False} != {'state_unchanged': True}
+E         {'http': 200} != {'http': 404}
+E         Use -v to get more diff
+
+test_query_readiness.py:13: AssertionError
+___________ test_query_requires_ready_session[TC-VQ-002-unindexed] ____________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3827C740>
+state = 'none', expected = 409
+
+    @pytest.mark.parametrize("state,expected", [("missing", 404), ("none", 409), ("processing", 409)],
+                             ids=["TC-VQ-002-missing", "TC-VQ-002-unindexed", "TC-VQ-002-indexing"])
+    def test_query_requires_ready_session(runtime, state, expected):
+        if state != "missing":
+            runtime.prepare(state)
+        before = runtime.status_file.read_bytes() if runtime.status_file.exists() else None
+        response = runtime.query("question")
+        after = runtime.status_file.read_bytes() if runtime.status_file.exists() else None
+>       assert {"http": response.status_code, "success": response.get_json().get("success"),
+                "created_processes": len(runtime.processes), "state_unchanged": after == before,
+                "directory_exists": runtime.directory.exists()} == {
+                    "http": expected, "success": False, "created_processes": 0,
+                    "state_unchanged": True, "directory_exists": state != "missing"}
+E       AssertionError: assert {'created_pro...d': True, ...} == {'created_pro...d': True, ...}
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'http': 500} != {'http': 409}
+E         Use -v to get more diff
+
+test_query_readiness.py:13: AssertionError
+____________ test_query_requires_ready_session[TC-VQ-002-indexing] ____________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3A88FBC0>
+state = 'processing', expected = 409
+
+    @pytest.mark.parametrize("state,expected", [("missing", 404), ("none", 409), ("processing", 409)],
+                             ids=["TC-VQ-002-missing", "TC-VQ-002-unindexed", "TC-VQ-002-indexing"])
+    def test_query_requires_ready_session(runtime, state, expected):
+        if state != "missing":
+            runtime.prepare(state)
+        before = runtime.status_file.read_bytes() if runtime.status_file.exists() else None
+        response = runtime.query("question")
+        after = runtime.status_file.read_bytes() if runtime.status_file.exists() else None
+>       assert {"http": response.status_code, "success": response.get_json().get("success"),
+                "created_processes": len(runtime.processes), "state_unchanged": after == before,
+                "directory_exists": runtime.directory.exists()} == {
+                    "http": expected, "success": False, "created_processes": 0,
+                    "state_unchanged": True, "directory_exists": state != "missing"}
+E       AssertionError: assert {'created_pro...d': True, ...} == {'created_pro...d': True, ...}
+E         Omitting 4 identical items, use -vv to show
+E         Differing items:
+E         {'http': 500} != {'http': 409}
+E         Use -v to get more diff
+
+test_query_readiness.py:13: AssertionError
+______________ test_TC_VQ_002_completed_session_can_start_query _______________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3A8DEC00>
+
+    def test_TC_VQ_002_completed_session_can_start_query(runtime):
+        runtime.prepare()
+>       process = require_started(runtime.query("question"), runtime)
+
+test_query_readiness.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+response = <WrapperTestResponse 573 bytes [500 INTERNAL SERVER ERROR]>
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3A8DEC00>
+
+    def require_started(response, runtime):
+>       assert response.status_code == 200, (
+            "BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this "
+            f"to model recovery or concurrency yet. Response: {response.get_json()}"
+        )
+E       AssertionError: BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this to model recovery or concurrency yet. Response: {'error': "Query error: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:\\\\Code\\\\text\\\\test-videorag\\\\Vimo-desktop\\\\test_video_query\\\\results\\\\2026-09-21T12-53-07-136224Z-23140\\\\pytest-temp\\\\test_TC_VQ_002_completed_sessi0\\\\chat-vq-session\\\\status.json.tmp' -> 'D:\\\\Code\\\\text\\\\test-videorag\\\\Vimo-desktop\\\\test_video_query\\\\results\\\\2026-09-21T12-53-07-136224Z-23140\\\\pytest-temp\\\\test_TC_VQ_002_completed_sessi0\\\\chat-vq-session\\\\status.json'", 'success': False}
+E       assert 500 == 200
+E        +  where 500 = <WrapperTestResponse streamed [500 INTERNAL SERVER ERROR]>.status_code
+
+conftest.py:147: AssertionError
+________ test_TC_VQ_003_timeout_clears_active_answer_and_allows_retry _________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3A931F70>
+model = <MagicMock id='1710379913088'>
+
+    def test_TC_VQ_003_timeout_clears_active_answer_and_allows_retry(runtime, model):
+        runtime.prepare(old_answer="old answer")
+        model.side_effect = TimeoutError("model timed out")
+>       process = require_started(runtime.query("failing question"), runtime)
+
+test_query_recovery.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+response = <WrapperTestResponse 573 bytes [500 INTERNAL SERVER ERROR]>
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3A931F70>
+
+    def require_started(response, runtime):
+>       assert response.status_code == 200, (
+            "BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this "
+            f"to model recovery or concurrency yet. Response: {response.get_json()}"
+        )
+E       AssertionError: BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this to model recovery or concurrency yet. Response: {'error': "Query error: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:\\\\Code\\\\text\\\\test-videorag\\\\Vimo-desktop\\\\test_video_query\\\\results\\\\2026-09-21T12-53-07-136224Z-23140\\\\pytest-temp\\\\test_TC_VQ_003_timeout_clears_0\\\\chat-vq-session\\\\status.json.tmp' -> 'D:\\\\Code\\\\text\\\\test-videorag\\\\Vimo-desktop\\\\test_video_query\\\\results\\\\2026-09-21T12-53-07-136224Z-23140\\\\pytest-temp\\\\test_TC_VQ_003_timeout_clears_0\\\\chat-vq-session\\\\status.json'", 'success': False}
+E       assert 500 == 200
+E        +  where 500 = <WrapperTestResponse streamed [500 INTERNAL SERVER ERROR]>.status_code
+
+conftest.py:147: AssertionError
+________ test_blank_query_is_rejected_before_dispatch[TC-VQ-001-empty] ________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E38429160>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000018E3A964EC0>
+query = ''
+
+    @pytest.mark.parametrize("query", ["", "   ", "\n", "\t", " \n\t "],
+                             ids=["TC-VQ-001-empty", "TC-VQ-001-spaces", "TC-VQ-001-newline", "TC-VQ-001-tab", "TC-VQ-001-mixed"])
+    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):
+        before = runtime.prepare()
+        # Narrow route-contract check. Real manager integration is exercised separately.
+        dispatch = MagicMock(return_value=True)
+        monkeypatch.setattr(runtime.manager, "start_query_processing", dispatch)
+        response = runtime.query(query)
+        observed = {"http": response.status_code, "success": response.get_json().get("success"),
+                    "dispatches": dispatch.call_count, "processes": len(runtime.processes),
+                    "state": runtime.status()}
+>       assert observed == {"http": 400, "success": False, "dispatches": 0, "processes": 0, "state": before}
+E       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'dispatches': 1} != {'dispatches': 0}
+E         {'success': True} != {'success': False}
+E         {'http': 200} != {'http': 400}
+E         Use -v to get more diff
+
+test_query_validation.py:16: AssertionError
+_______ test_blank_query_is_rejected_before_dispatch[TC-VQ-001-spaces] ________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3A8DC0E0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000018E3A8DFBF0>
+query = '   '
+
+    @pytest.mark.parametrize("query", ["", "   ", "\n", "\t", " \n\t "],
+                             ids=["TC-VQ-001-empty", "TC-VQ-001-spaces", "TC-VQ-001-newline", "TC-VQ-001-tab", "TC-VQ-001-mixed"])
+    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):
+        before = runtime.prepare()
+        # Narrow route-contract check. Real manager integration is exercised separately.
+        dispatch = MagicMock(return_value=True)
+        monkeypatch.setattr(runtime.manager, "start_query_processing", dispatch)
+        response = runtime.query(query)
+        observed = {"http": response.status_code, "success": response.get_json().get("success"),
+                    "dispatches": dispatch.call_count, "processes": len(runtime.processes),
+                    "state": runtime.status()}
+>       assert observed == {"http": 400, "success": False, "dispatches": 0, "processes": 0, "state": before}
+E       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'dispatches': 1} != {'dispatches': 0}
+E         {'success': True} != {'success': False}
+E         {'http': 200} != {'http': 400}
+E         Use -v to get more diff
+
+test_query_validation.py:16: AssertionError
+_______ test_blank_query_is_rejected_before_dispatch[TC-VQ-001-newline] _______
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3A9A22A0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000018E3A88EB10>
+query = '\n'
+
+    @pytest.mark.parametrize("query", ["", "   ", "\n", "\t", " \n\t "],
+                             ids=["TC-VQ-001-empty", "TC-VQ-001-spaces", "TC-VQ-001-newline", "TC-VQ-001-tab", "TC-VQ-001-mixed"])
+    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):
+        before = runtime.prepare()
+        # Narrow route-contract check. Real manager integration is exercised separately.
+        dispatch = MagicMock(return_value=True)
+        monkeypatch.setattr(runtime.manager, "start_query_processing", dispatch)
+        response = runtime.query(query)
+        observed = {"http": response.status_code, "success": response.get_json().get("success"),
+                    "dispatches": dispatch.call_count, "processes": len(runtime.processes),
+                    "state": runtime.status()}
+>       assert observed == {"http": 400, "success": False, "dispatches": 0, "processes": 0, "state": before}
+E       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'dispatches': 1} != {'dispatches': 0}
+E         {'success': True} != {'success': False}
+E         {'http': 200} != {'http': 400}
+E         Use -v to get more diff
+
+test_query_validation.py:16: AssertionError
+_________ test_blank_query_is_rejected_before_dispatch[TC-VQ-001-tab] _________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3A9BD5B0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000018E3A999F70>
+query = '\t'
+
+    @pytest.mark.parametrize("query", ["", "   ", "\n", "\t", " \n\t "],
+                             ids=["TC-VQ-001-empty", "TC-VQ-001-spaces", "TC-VQ-001-newline", "TC-VQ-001-tab", "TC-VQ-001-mixed"])
+    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):
+        before = runtime.prepare()
+        # Narrow route-contract check. Real manager integration is exercised separately.
+        dispatch = MagicMock(return_value=True)
+        monkeypatch.setattr(runtime.manager, "start_query_processing", dispatch)
+        response = runtime.query(query)
+        observed = {"http": response.status_code, "success": response.get_json().get("success"),
+                    "dispatches": dispatch.call_count, "processes": len(runtime.processes),
+                    "state": runtime.status()}
+>       assert observed == {"http": 400, "success": False, "dispatches": 0, "processes": 0, "state": before}
+E       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'dispatches': 1} != {'dispatches': 0}
+E         {'success': True} != {'success': False}
+E         {'http': 200} != {'http': 400}
+E         Use -v to get more diff
+
+test_query_validation.py:16: AssertionError
+________ test_blank_query_is_rejected_before_dispatch[TC-VQ-001-mixed] ________
+
+runtime = <conftest.runtime.<locals>.Runtime object at 0x0000018E3A9F8980>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000018E3A9E7020>
+query = ' \n\t '
+
+    @pytest.mark.parametrize("query", ["", "   ", "\n", "\t", " \n\t "],
+                             ids=["TC-VQ-001-empty", "TC-VQ-001-spaces", "TC-VQ-001-newline", "TC-VQ-001-tab", "TC-VQ-001-mixed"])
+    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):
+        before = runtime.prepare()
+        # Narrow route-contract check. Real manager integration is exercised separately.
+        dispatch = MagicMock(return_value=True)
+        monkeypatch.setattr(runtime.manager, "start_query_processing", dispatch)
+        response = runtime.query(query)
+        observed = {"http": response.status_code, "success": response.get_json().get("success"),
+                    "dispatches": dispatch.call_count, "processes": len(runtime.processes),
+                    "state": runtime.status()}
+>       assert observed == {"http": 400, "success": False, "dispatches": 0, "processes": 0, "state": before}
+E       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'dispatches': 1} != {'dispatches': 0}
+E         {'success': True} != {'success': False}
+E         {'http': 200} != {'http': 400}
+E         Use -v to get more diff
+
+test_query_validation.py:16: AssertionError
+- generated xml file: D:\Code\text\test-videorag\Vimo-desktop\test_video_query\results\2026-09-21T12-53-07-136224Z-23140\pytest.xml -
+=========================== short test summary info ===========================
+FAILED test_query_concurrency.py::test_TC_VQ_004_busy_session_rejects_B_preserves_A_then_accepts_B
+FAILED test_query_readiness.py::test_query_requires_ready_session[TC-VQ-002-missing]
+FAILED test_query_readiness.py::test_query_requires_ready_session[TC-VQ-002-unindexed]
+FAILED test_query_readiness.py::test_query_requires_ready_session[TC-VQ-002-indexing]
+FAILED test_query_readiness.py::test_TC_VQ_002_completed_session_can_start_query
+FAILED test_query_recovery.py::test_TC_VQ_003_timeout_clears_active_answer_and_allows_retry
+FAILED test_query_validation.py::test_blank_query_is_rejected_before_dispatch[TC-VQ-001-empty]
+FAILED test_query_validation.py::test_blank_query_is_rejected_before_dispatch[TC-VQ-001-spaces]
+FAILED test_query_validation.py::test_blank_query_is_rejected_before_dispatch[TC-VQ-001-newline]
+FAILED test_query_validation.py::test_blank_query_is_rejected_before_dispatch[TC-VQ-001-tab]
+FAILED test_query_validation.py::test_blank_query_is_rejected_before_dispatch[TC-VQ-001-mixed]
+11 failed, 1 passed in 2.25s

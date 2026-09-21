@@ -1,0 +1,216 @@
+{
+  "exitCode": 1,
+  "infrastructureErrors": [],
+  "groups": [
+    {
+      "id": "TC-VQ-001",
+      "status": "FAIL",
+      "expected": 12,
+      "passed": 1,
+      "failed": 11,
+      "blockedBeforeWorker": 0
+    },
+    {
+      "id": "TC-VQ-002",
+      "status": "FAIL",
+      "expected": 6,
+      "passed": 0,
+      "failed": 6,
+      "blockedBeforeWorker": 1
+    },
+    {
+      "id": "TC-VQ-003",
+      "status": "FAIL",
+      "expected": 2,
+      "passed": 0,
+      "failed": 2,
+      "blockedBeforeWorker": 1
+    },
+    {
+      "id": "TC-VQ-004",
+      "status": "FAIL",
+      "expected": 2,
+      "passed": 0,
+      "failed": 2,
+      "blockedBeforeWorker": 1
+    }
+  ],
+  "checks": [
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-004",
+      "name": "test_TC_VQ_004_busy_session_rejects_B_preserves_A_then_accepts_B",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE43BDA0>\nmodel = <MagicMock id='2919743747808'>\n\n    def test_TC_VQ_004_busy_session_rejects_B_preserves_A_then_accepts_B(runtime, model):\n        runtime.prepare()\n        model.side_effect = lambda query, param: \"answer to \" + query\n>       first = require_started(runtime.query(\"question A\"), runtime)\n\ntest_query_concurrency.py:7: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nresponse = <WrapperTestResponse 573 bytes [500 INTERNAL SERVER ERROR]>\nruntime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE43BDA0>\n\n    def require_started(response, runtime):\n>       assert response.status_code == 200, (\n            \"BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this \"\n            f\"to model recovery or concurrency yet. Response: {response.get_json()}\"\n        )\nE       AssertionError: BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this to model recovery or concurrency yet. Response: {'error': \"Query error: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-51-31-353174Z-29340\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_004_busy_session_re0\\\\\\\\chat-vq-session\\\\\\\\status.json.tmp' -> 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-51-31-353174Z-29340\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_004_busy_session_re0\\\\\\\\chat-vq-session\\\\\\\\status.json'\", 'success': False}\nE       assert 500 == 200\nE        +  where 500 = <WrapperTestResponse streamed [500 INTERNAL SERVER ERROR]>.status_code\n\nconftest.py:147: AssertionError",
+      "blockedBeforeWorker": true
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-002",
+      "name": "test_query_requires_ready_session[TC-VQ-002-missing]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE4CE2A0>\nstate = 'missing', expected = 404\n\n    @pytest.mark.parametrize(\"state,expected\", [(\"missing\", 404), (\"none\", 409), (\"processing\", 409)],\n                             ids=[\"TC-VQ-002-missing\", \"TC-VQ-002-unindexed\", \"TC-VQ-002-indexing\"])\n    def test_query_requires_ready_session(runtime, state, expected):\n        if state != \"missing\":\n            runtime.prepare(state)\n        before = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n        response = runtime.query(\"question\")\n        after = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n>       assert {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                \"created_processes\": len(runtime.processes), \"state_unchanged\": after == before,\n                \"directory_exists\": runtime.directory.exists()} == {\n                    \"http\": expected, \"success\": False, \"created_processes\": 0,\n                    \"state_unchanged\": True, \"directory_exists\": state != \"missing\"}\nE       AssertionError: assert {'created_pro...': False, ...} == {'created_pro...d': True, ...}\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'directory_exists': True} != {'directory_exists': False}\nE         {'http': 200} != {'http': 404}\nE         {'state_unchanged': False} != {'state_unchanged': True}\nE         {'created_processes': 1} != {'created_processes': 0}\nE         Use -v to get more diff\n\ntest_query_readiness.py:13: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-002",
+      "name": "test_query_requires_ready_session[TC-VQ-002-unindexed]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE53BE90>\nstate = 'none', expected = 409\n\n    @pytest.mark.parametrize(\"state,expected\", [(\"missing\", 404), (\"none\", 409), (\"processing\", 409)],\n                             ids=[\"TC-VQ-002-missing\", \"TC-VQ-002-unindexed\", \"TC-VQ-002-indexing\"])\n    def test_query_requires_ready_session(runtime, state, expected):\n        if state != \"missing\":\n            runtime.prepare(state)\n        before = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n        response = runtime.query(\"question\")\n        after = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n>       assert {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                \"created_processes\": len(runtime.processes), \"state_unchanged\": after == before,\n                \"directory_exists\": runtime.directory.exists()} == {\n                    \"http\": expected, \"success\": False, \"created_processes\": 0,\n                    \"state_unchanged\": True, \"directory_exists\": state != \"missing\"}\nE       AssertionError: assert {'created_pro...d': True, ...} == {'created_pro...d': True, ...}\nE         Omitting 4 identical items, use -vv to show\nE         Differing items:\nE         {'http': 500} != {'http': 409}\nE         Use -v to get more diff\n\ntest_query_readiness.py:13: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-002",
+      "name": "test_query_requires_ready_session[TC-VQ-002-indexing]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE57AE10>\nstate = 'processing', expected = 409\n\n    @pytest.mark.parametrize(\"state,expected\", [(\"missing\", 404), (\"none\", 409), (\"processing\", 409)],\n                             ids=[\"TC-VQ-002-missing\", \"TC-VQ-002-unindexed\", \"TC-VQ-002-indexing\"])\n    def test_query_requires_ready_session(runtime, state, expected):\n        if state != \"missing\":\n            runtime.prepare(state)\n        before = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n        response = runtime.query(\"question\")\n        after = runtime.status_file.read_bytes() if runtime.status_file.exists() else None\n>       assert {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                \"created_processes\": len(runtime.processes), \"state_unchanged\": after == before,\n                \"directory_exists\": runtime.directory.exists()} == {\n                    \"http\": expected, \"success\": False, \"created_processes\": 0,\n                    \"state_unchanged\": True, \"directory_exists\": state != \"missing\"}\nE       AssertionError: assert {'created_pro...d': True, ...} == {'created_pro...d': True, ...}\nE         Omitting 4 identical items, use -vv to show\nE         Differing items:\nE         {'http': 500} != {'http': 409}\nE         Use -v to get more diff\n\ntest_query_readiness.py:13: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-002",
+      "name": "test_TC_VQ_002_completed_session_can_start_query",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CA18C230>\n\n    def test_TC_VQ_002_completed_session_can_start_query(runtime):\n        runtime.prepare()\n>       process = require_started(runtime.query(\"question\"), runtime)\n\ntest_query_readiness.py:22: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nresponse = <WrapperTestResponse 573 bytes [500 INTERNAL SERVER ERROR]>\nruntime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CA18C230>\n\n    def require_started(response, runtime):\n>       assert response.status_code == 200, (\n            \"BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this \"\n            f\"to model recovery or concurrency yet. Response: {response.get_json()}\"\n        )\nE       AssertionError: BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this to model recovery or concurrency yet. Response: {'error': \"Query error: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-51-31-353174Z-29340\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_002_completed_sessi0\\\\\\\\chat-vq-session\\\\\\\\status.json.tmp' -> 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-51-31-353174Z-29340\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_002_completed_sessi0\\\\\\\\chat-vq-session\\\\\\\\status.json'\", 'success': False}\nE       assert 500 == 200\nE        +  where 500 = <WrapperTestResponse streamed [500 INTERNAL SERVER ERROR]>.status_code\n\nconftest.py:147: AssertionError",
+      "blockedBeforeWorker": true
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-003",
+      "name": "test_TC_VQ_003_timeout_clears_active_answer_and_allows_retry",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE53A570>\nmodel = <MagicMock id='2919743938176'>\n\n    def test_TC_VQ_003_timeout_clears_active_answer_and_allows_retry(runtime, model):\n        runtime.prepare(old_answer=\"old answer\")\n        model.side_effect = TimeoutError(\"model timed out\")\n>       process = require_started(runtime.query(\"failing question\"), runtime)\n\ntest_query_recovery.py:7: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nresponse = <WrapperTestResponse 573 bytes [500 INTERNAL SERVER ERROR]>\nruntime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE53A570>\n\n    def require_started(response, runtime):\n>       assert response.status_code == 200, (\n            \"BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this \"\n            f\"to model recovery or concurrency yet. Response: {response.get_json()}\"\n        )\nE       AssertionError: BLOCKED_BEFORE_WORKER: valid query could not start; do not attribute this to model recovery or concurrency yet. Response: {'error': \"Query error: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-51-31-353174Z-29340\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_003_timeout_clears_0\\\\\\\\chat-vq-session\\\\\\\\status.json.tmp' -> 'D:\\\\\\\\Code\\\\\\\\text\\\\\\\\test-videorag\\\\\\\\Vimo-desktop\\\\\\\\test_video_query\\\\\\\\results\\\\\\\\2026-09-21T12-51-31-353174Z-29340\\\\\\\\pytest-temp\\\\\\\\test_TC_VQ_003_timeout_clears_0\\\\\\\\chat-vq-session\\\\\\\\status.json'\", 'success': False}\nE       assert 500 == 200\nE        +  where 500 = <WrapperTestResponse streamed [500 INTERNAL SERVER ERROR]>.status_code\n\nconftest.py:147: AssertionError",
+      "blockedBeforeWorker": true
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_blank_query_is_rejected_before_dispatch[TC-VQ-001-empty]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE53B7A0>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002A7CE4CF0E0>\nquery = ''\n\n    @pytest.mark.parametrize(\"query\", [\"\", \"   \", \"\\n\", \"\\t\", \" \\n\\t \"],\n                             ids=[\"TC-VQ-001-empty\", \"TC-VQ-001-spaces\", \"TC-VQ-001-newline\", \"TC-VQ-001-tab\", \"TC-VQ-001-mixed\"])\n    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):\n        before = runtime.prepare()\n        # Narrow route-contract check. Real manager integration is exercised separately.\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(query)\n        observed = {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                    \"dispatches\": dispatch.call_count, \"processes\": len(runtime.processes),\n                    \"state\": runtime.status()}\n>       assert observed == {\"http\": 400, \"success\": False, \"dispatches\": 0, \"processes\": 0, \"state\": before}\nE       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}\nE         Omitting 2 identical items, use -vv to show\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'http': 200} != {'http': 400}\nE         {'dispatches': 1} != {'dispatches': 0}\nE         Use -v to get more diff\n\ntest_query_validation.py:16: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_blank_query_is_rejected_before_dispatch[TC-VQ-001-spaces]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE621580>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002A7CE60FC20>\nquery = '   '\n\n    @pytest.mark.parametrize(\"query\", [\"\", \"   \", \"\\n\", \"\\t\", \" \\n\\t \"],\n                             ids=[\"TC-VQ-001-empty\", \"TC-VQ-001-spaces\", \"TC-VQ-001-newline\", \"TC-VQ-001-tab\", \"TC-VQ-001-mixed\"])\n    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):\n        before = runtime.prepare()\n        # Narrow route-contract check. Real manager integration is exercised separately.\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(query)\n        observed = {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                    \"dispatches\": dispatch.call_count, \"processes\": len(runtime.processes),\n                    \"state\": runtime.status()}\n>       assert observed == {\"http\": 400, \"success\": False, \"dispatches\": 0, \"processes\": 0, \"state\": before}\nE       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}\nE         Omitting 2 identical items, use -vv to show\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'http': 200} != {'http': 400}\nE         {'dispatches': 1} != {'dispatches': 0}\nE         Use -v to get more diff\n\ntest_query_validation.py:16: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_blank_query_is_rejected_before_dispatch[TC-VQ-001-newline]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE66C9B0>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002A7CE645220>\nquery = '\\n'\n\n    @pytest.mark.parametrize(\"query\", [\"\", \"   \", \"\\n\", \"\\t\", \" \\n\\t \"],\n                             ids=[\"TC-VQ-001-empty\", \"TC-VQ-001-spaces\", \"TC-VQ-001-newline\", \"TC-VQ-001-tab\", \"TC-VQ-001-mixed\"])\n    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):\n        before = runtime.prepare()\n        # Narrow route-contract check. Real manager integration is exercised separately.\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(query)\n        observed = {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                    \"dispatches\": dispatch.call_count, \"processes\": len(runtime.processes),\n                    \"state\": runtime.status()}\n>       assert observed == {\"http\": 400, \"success\": False, \"dispatches\": 0, \"processes\": 0, \"state\": before}\nE       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}\nE         Omitting 2 identical items, use -vv to show\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'http': 200} != {'http': 400}\nE         {'dispatches': 1} != {'dispatches': 0}\nE         Use -v to get more diff\n\ntest_query_validation.py:16: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_blank_query_is_rejected_before_dispatch[TC-VQ-001-tab]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE4CFB60>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002A7CE4CF290>\nquery = '\\t'\n\n    @pytest.mark.parametrize(\"query\", [\"\", \"   \", \"\\n\", \"\\t\", \" \\n\\t \"],\n                             ids=[\"TC-VQ-001-empty\", \"TC-VQ-001-spaces\", \"TC-VQ-001-newline\", \"TC-VQ-001-tab\", \"TC-VQ-001-mixed\"])\n    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):\n        before = runtime.prepare()\n        # Narrow route-contract check. Real manager integration is exercised separately.\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(query)\n        observed = {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                    \"dispatches\": dispatch.call_count, \"processes\": len(runtime.processes),\n                    \"state\": runtime.status()}\n>       assert observed == {\"http\": 400, \"success\": False, \"dispatches\": 0, \"processes\": 0, \"state\": before}\nE       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}\nE         Omitting 2 identical items, use -vv to show\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'http': 200} != {'http': 400}\nE         {'dispatches': 1} != {'dispatches': 0}\nE         Use -v to get more diff\n\ntest_query_validation.py:16: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_blank_query_is_rejected_before_dispatch[TC-VQ-001-mixed]",
+      "status": "failed",
+      "detail": "runtime = <conftest.runtime.<locals>.Runtime object at 0x000002A7CE564DD0>\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002A7CE5DFA10>\nquery = ' \\n\\t '\n\n    @pytest.mark.parametrize(\"query\", [\"\", \"   \", \"\\n\", \"\\t\", \" \\n\\t \"],\n                             ids=[\"TC-VQ-001-empty\", \"TC-VQ-001-spaces\", \"TC-VQ-001-newline\", \"TC-VQ-001-tab\", \"TC-VQ-001-mixed\"])\n    def test_blank_query_is_rejected_before_dispatch(runtime, monkeypatch, query):\n        before = runtime.prepare()\n        # Narrow route-contract check. Real manager integration is exercised separately.\n        dispatch = MagicMock(return_value=True)\n        monkeypatch.setattr(runtime.manager, \"start_query_processing\", dispatch)\n        response = runtime.query(query)\n        observed = {\"http\": response.status_code, \"success\": response.get_json().get(\"success\"),\n                    \"dispatches\": dispatch.call_count, \"processes\": len(runtime.processes),\n                    \"state\": runtime.status()}\n>       assert observed == {\"http\": 400, \"success\": False, \"dispatches\": 0, \"processes\": 0, \"state\": before}\nE       AssertionError: assert {'dispatches'...leted'}}, ...} == {'dispatches'...leted'}}, ...}\nE         Omitting 2 identical items, use -vv to show\nE         Differing items:\nE         {'success': True} != {'success': False}\nE         {'http': 200} != {'http': 400}\nE         {'dispatches': 1} != {'dispatches': 0}\nE         Use -v to get more diff\n\ntest_query_validation.py:16: AssertionError",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "pytest",
+      "id": "TC-VQ-001",
+      "name": "test_TC_VQ_001_valid_query_is_trimmed_and_dispatched_once",
+      "status": "passed",
+      "detail": "",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-003",
+      "name": "TC-VQ-003 / timeout ends polling, preserves history and permits successful retry",
+      "status": "failed",
+      "detail": "TypeError: Cannot read properties of null (reading 'useRef')\n    at Module.useRef (D:\\Code\\text\\test-videorag\\Vimo-desktop\\node_modules\\react\\cjs\\react.development.js:1630:21)\n    at MemoryRouter (file:///D:/Code/text/test-videorag/Vimo-desktop/node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27)\n    at renderWithHooks (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:20103:13)\n    at beginWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:21626:16)\n    at beginWork$1 (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:27465:14)\n    at performUnitOfWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26599:12)\n    at workLoopSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26505:5)\n    at renderRootSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:25889:20)",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / blank \"\" never dispatches a query",
+      "status": "failed",
+      "detail": "TypeError: Cannot read properties of null (reading 'useRef')\n    at Module.useRef (D:\\Code\\text\\test-videorag\\Vimo-desktop\\node_modules\\react\\cjs\\react.development.js:1630:21)\n    at MemoryRouter (file:///D:/Code/text/test-videorag/Vimo-desktop/node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27)\n    at renderWithHooks (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:20103:13)\n    at beginWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:21626:16)\n    at beginWork$1 (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:27465:14)\n    at performUnitOfWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26599:12)\n    at workLoopSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26505:5)\n    at renderRootSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:25889:20)",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / blank \"   \" never dispatches a query",
+      "status": "failed",
+      "detail": "TypeError: Cannot read properties of null (reading 'useRef')\n    at Module.useRef (D:\\Code\\text\\test-videorag\\Vimo-desktop\\node_modules\\react\\cjs\\react.development.js:1630:21)\n    at MemoryRouter (file:///D:/Code/text/test-videorag/Vimo-desktop/node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27)\n    at renderWithHooks (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:20103:13)\n    at beginWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:21626:16)\n    at beginWork$1 (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:27465:14)\n    at performUnitOfWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26599:12)\n    at workLoopSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26505:5)\n    at renderRootSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:25889:20)",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / blank \"\\n\" never dispatches a query",
+      "status": "failed",
+      "detail": "TypeError: Cannot read properties of null (reading 'useRef')\n    at Module.useRef (D:\\Code\\text\\test-videorag\\Vimo-desktop\\node_modules\\react\\cjs\\react.development.js:1630:21)\n    at MemoryRouter (file:///D:/Code/text/test-videorag/Vimo-desktop/node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27)\n    at renderWithHooks (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:20103:13)\n    at beginWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:21626:16)\n    at beginWork$1 (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:27465:14)\n    at performUnitOfWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26599:12)\n    at workLoopSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26505:5)\n    at renderRootSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:25889:20)",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / blank \"\\t\" never dispatches a query",
+      "status": "failed",
+      "detail": "TypeError: Cannot read properties of null (reading 'useRef')\n    at Module.useRef (D:\\Code\\text\\test-videorag\\Vimo-desktop\\node_modules\\react\\cjs\\react.development.js:1630:21)\n    at MemoryRouter (file:///D:/Code/text/test-videorag/Vimo-desktop/node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27)\n    at renderWithHooks (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:20103:13)\n    at beginWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:21626:16)\n    at beginWork$1 (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:27465:14)\n    at performUnitOfWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26599:12)\n    at workLoopSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26505:5)\n    at renderRootSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:25889:20)",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / blank \" \\n\\t \" never dispatches a query",
+      "status": "failed",
+      "detail": "TypeError: Cannot read properties of null (reading 'useRef')\n    at Module.useRef (D:\\Code\\text\\test-videorag\\Vimo-desktop\\node_modules\\react\\cjs\\react.development.js:1630:21)\n    at MemoryRouter (file:///D:/Code/text/test-videorag/Vimo-desktop/node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27)\n    at renderWithHooks (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:20103:13)\n    at beginWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:21626:16)\n    at beginWork$1 (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:27465:14)\n    at performUnitOfWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26599:12)\n    at workLoopSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26505:5)\n    at renderRootSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:25889:20)",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-001",
+      "name": "TC-VQ-001 / valid question is trimmed and dispatched once",
+      "status": "failed",
+      "detail": "TypeError: Cannot read properties of null (reading 'useRef')\n    at Module.useRef (D:\\Code\\text\\test-videorag\\Vimo-desktop\\node_modules\\react\\cjs\\react.development.js:1630:21)\n    at MemoryRouter (file:///D:/Code/text/test-videorag/Vimo-desktop/node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27)\n    at renderWithHooks (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:20103:13)\n    at beginWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:21626:16)\n    at beginWork$1 (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:27465:14)\n    at performUnitOfWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26599:12)\n    at workLoopSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26505:5)\n    at renderRootSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:25889:20)",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-002",
+      "name": "TC-VQ-002 / none session cannot submit a model query",
+      "status": "failed",
+      "detail": "TypeError: Cannot read properties of null (reading 'useRef')\n    at Module.useRef (D:\\Code\\text\\test-videorag\\Vimo-desktop\\node_modules\\react\\cjs\\react.development.js:1630:21)\n    at MemoryRouter (file:///D:/Code/text/test-videorag/Vimo-desktop/node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27)\n    at renderWithHooks (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:20103:13)\n    at beginWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:21626:16)\n    at beginWork$1 (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:27465:14)\n    at performUnitOfWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26599:12)\n    at workLoopSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26505:5)\n    at renderRootSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:25889:20)",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-002",
+      "name": "TC-VQ-002 / analyzing session cannot submit a model query",
+      "status": "failed",
+      "detail": "TypeError: Cannot read properties of null (reading 'useRef')\n    at Module.useRef (D:\\Code\\text\\test-videorag\\Vimo-desktop\\node_modules\\react\\cjs\\react.development.js:1630:21)\n    at MemoryRouter (file:///D:/Code/text/test-videorag/Vimo-desktop/node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27)\n    at renderWithHooks (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:20103:13)\n    at beginWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:21626:16)\n    at beginWork$1 (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:27465:14)\n    at performUnitOfWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26599:12)\n    at workLoopSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26505:5)\n    at renderRootSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:25889:20)",
+      "blockedBeforeWorker": false
+    },
+    {
+      "framework": "vitest",
+      "id": "TC-VQ-004",
+      "name": "TC-VQ-004 / B is blocked during A then answers stay paired after retry",
+      "status": "failed",
+      "detail": "TypeError: Cannot read properties of null (reading 'useRef')\n    at Module.useRef (D:\\Code\\text\\test-videorag\\Vimo-desktop\\node_modules\\react\\cjs\\react.development.js:1630:21)\n    at MemoryRouter (file:///D:/Code/text/test-videorag/Vimo-desktop/node_modules/react-router/dist/development/chunk-BV7QT456.mjs:7050:27)\n    at renderWithHooks (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:15486:18)\n    at mountIndeterminateComponent (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:20103:13)\n    at beginWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:21626:16)\n    at beginWork$1 (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:27465:14)\n    at performUnitOfWork (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26599:12)\n    at workLoopSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26505:5)\n    at renderRootSync (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:26473:7)\n    at recoverFromConcurrentError (D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\react-dom\\cjs\\react-dom.development.js:25889:20)",
+      "blockedBeforeWorker": false
+    }
+  ]
+}

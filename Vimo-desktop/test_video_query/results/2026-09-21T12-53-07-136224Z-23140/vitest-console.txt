@@ -1,0 +1,35 @@
+
+ RUN  v2.1.9 D:/Code/text/test-videorag/Vimo-desktop/test_video_query
+
+ ✓ query_submission.test.tsx > TC-VQ-001 / blank "" never dispatches a query
+ ✓ query_submission.test.tsx > TC-VQ-001 / blank "   " never dispatches a query
+ ✓ query_submission.test.tsx > TC-VQ-001 / blank "\n" never dispatches a query
+ ✓ query_submission.test.tsx > TC-VQ-001 / blank "\t" never dispatches a query
+ ✓ query_submission.test.tsx > TC-VQ-001 / blank " \n\t " never dispatches a query
+ × query_submission.test.tsx > TC-VQ-001 / valid question is trimmed and dispatched once
+   → Invalid Chai property: toHaveBeenCalledExactlyOnceWith
+ ✓ query_submission.test.tsx > TC-VQ-002 / none session cannot submit a model query
+ ✓ query_submission.test.tsx > TC-VQ-002 / analyzing session cannot submit a model query
+ ✓ query_submission.test.tsx > TC-VQ-004 / B is blocked during A then answers stay paired after retry
+ ✓ query_recovery.test.tsx > TC-VQ-003 / timeout ends polling, preserves history and permits successful retry
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 9 passed (10)
+   Start at  20:53:12
+   Duration  8.46s (transform 251ms, setup 1.46s, collect 50ms, tests 241ms, environment 5.31s, prepare 792ms)
+
+JSON report written to D:/Code/text/test-videorag/Vimo-desktop/test_video_query/results/2026-09-21T12-53-07-136224Z-23140/vitest.json
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  query_submission.test.tsx > TC-VQ-001 / valid question is trimmed and dispatched once
+Error: Invalid Chai property: toHaveBeenCalledExactlyOnceWith
+ ❯ query_submission.test.tsx:14:33
+     12|   const hook = await mountChat()
+     13|   await submit(hook, '  视频讲了什么？  ')
+     14|   expect(api.videorag.queryVideo).toHaveBeenCalledExactlyOnceWith(sess…
+       |                                 ^
+     15|   respond({ status: 'completed', answer: 'answer' })
+     16|   await tick()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+

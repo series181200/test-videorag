@@ -1,0 +1,100 @@
+{
+  "startedAt": "2026-09-21T12-51-31-353174Z",
+  "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+  "pythonExecutable": "D:\\develop\\Anaconda\\python.exe",
+  "commit": "6dac0a61c28f77df4f232101ec9d2332fd9fd60c",
+  "workingTree": "?? Vimo-desktop/test_video_query/conftest.py\n?? Vimo-desktop/test_video_query/package.json\n?? Vimo-desktop/test_video_query/pytest.ini\n?? Vimo-desktop/test_video_query/query_recovery.test.tsx\n?? Vimo-desktop/test_video_query/query_submission.test.tsx\n?? Vimo-desktop/test_video_query/renderer_support.tsx\n?? Vimo-desktop/test_video_query/requirements-test.txt\n?? Vimo-desktop/test_video_query/run_tests.py\n?? Vimo-desktop/test_video_query/test_query_concurrency.py\n?? Vimo-desktop/test_video_query/test_query_readiness.py\n?? Vimo-desktop/test_video_query/test_query_recovery.py\n?? Vimo-desktop/test_video_query/test_query_validation.py\n?? Vimo-desktop/test_video_query/vitest.config.ts\nwarning: unable to access 'C:\\Users\\xiaobai/.config/git/ignore': Permission denied\nwarning: unable to access 'C:\\Users\\xiaobai/.config/git/ignore': Permission denied",
+  "files": [
+    {
+      "path": "Vimo-desktop/python_backend/videorag_api.py",
+      "sha256": "e1525cd61fd4697101912bb5d2418c73f265de5cef006a40f87ec8c054f6dd8f"
+    },
+    {
+      "path": "Vimo-desktop/src/renderer/src/hooks/useChat.ts",
+      "sha256": "1ad9caabfcb5c797dfe5dc1597f5393ee41db311a928a95fc6d78bcd6ac8eae8"
+    },
+    {
+      "path": "Vimo-desktop/src/renderer/src/utils/chat.ts",
+      "sha256": "2adffd0cd954f979aaaef2732e647dc6d56d081e5df0a16ddb8c04603b4c692e"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/conftest.py",
+      "sha256": "1b45defbaa830b3396bbffce52956687999daa06e91f400b6fd938d14513dd71"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/package.json",
+      "sha256": "a1a8cc6d07b6d1cd51efa11f11d94c0eb3ba71389af8917e38b81482ac17d0af"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/pytest.ini",
+      "sha256": "9e2425531b5909d2a24e241c4f0acc91d48639ba99c3f2435fd81af44d752a94"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/query_recovery.test.tsx",
+      "sha256": "334091a8be68d5a9042e74db3447240c67961f84711edff6fa50fc99b043b964"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/query_submission.test.tsx",
+      "sha256": "b11b1220dc6cfcb61b0e95d3564d4845866e3efd1c4c73e968b3274526865359"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/renderer_support.tsx",
+      "sha256": "ba9351cd59f3cd0d596841435bfe623abf6a9f656f65e780c6643ebd0f22aeeb"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/requirements-test.txt",
+      "sha256": "eace30e8447265227dbfcd2b3b501136f2178ba4f3b9cec75c7672f7d5dcbc9b"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/run_tests.py",
+      "sha256": "8fabd9f993bc70b4cebeea48120b58746c43c3234e8a625816b5d035e4921f1e"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/test_query_concurrency.py",
+      "sha256": "fa97259f6cf9a8ea5ac44242144c4339db24e84a90ba3bf512de9dd3afde0fca"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/test_query_readiness.py",
+      "sha256": "b387ca72f24fdea9c9c71d1dcc0c4768b2135434f4762a394a350343fc7fca58"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/test_query_recovery.py",
+      "sha256": "bb1d9634ab319f8275eeb7e6a7235f0b6451dc1ce00734db97fa2e2041849c5b"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/test_query_validation.py",
+      "sha256": "9f6fa99cad0bf377c70a9cf203fa3546999d46d57b86ad1f79a18c03cf0a6b7d"
+    },
+    {
+      "path": "Vimo-desktop/test_video_query/vitest.config.ts",
+      "sha256": "e35265ee0c3fe52dc46edd86dc191c4f00184ce9301479020f1e342e29d5c361"
+    }
+  ],
+  "pytestVersion": "pytest 7.4.4\n",
+  "vitestVersion": "2.1.9",
+  "vitestPackage": "D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\vitest\\package.json",
+  "nodeVersion": "v22.13.1\n",
+  "commands": {
+    "pytest": [
+      "D:\\develop\\Anaconda\\python.exe",
+      "-m",
+      "pytest",
+      "-c",
+      "D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_video_query\\pytest.ini",
+      "D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_video_query",
+      "-q",
+      "--junitxml=D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_video_query\\results\\2026-09-21T12-51-31-353174Z-29340\\pytest.xml",
+      "--basetemp=D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_video_query\\results\\2026-09-21T12-51-31-353174Z-29340\\pytest-temp"
+    ],
+    "vitest": [
+      "node",
+      "D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_renderer\\node_modules\\vitest\\vitest.mjs",
+      "run",
+      "--config",
+      "D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_video_query\\vitest.config.ts",
+      "--reporter=verbose",
+      "--reporter=json",
+      "--outputFile.json=D:\\Code\\text\\test-videorag\\Vimo-desktop\\test_video_query\\results\\2026-09-21T12-51-31-353174Z-29340\\vitest.json"
+    ]
+  }
+}

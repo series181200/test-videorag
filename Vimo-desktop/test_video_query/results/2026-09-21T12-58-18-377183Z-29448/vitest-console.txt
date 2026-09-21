@@ -1,0 +1,20 @@
+
+ RUN  v2.1.9 D:/Code/text/test-videorag/Vimo-desktop/test_video_query
+
+ ✓ query_submission.test.tsx > TC-VQ-001 / blank "" never dispatches a query
+ ✓ query_submission.test.tsx > TC-VQ-001 / blank "   " never dispatches a query
+ ✓ query_submission.test.tsx > TC-VQ-001 / blank "\n" never dispatches a query
+ ✓ query_submission.test.tsx > TC-VQ-001 / blank "\t" never dispatches a query
+ ✓ query_submission.test.tsx > TC-VQ-001 / blank " \n\t " never dispatches a query
+ ✓ query_submission.test.tsx > TC-VQ-001 / valid question is trimmed and dispatched once
+ ✓ query_submission.test.tsx > TC-VQ-002 / none session cannot submit a model query
+ ✓ query_submission.test.tsx > TC-VQ-002 / analyzing session cannot submit a model query
+ ✓ query_submission.test.tsx > TC-VQ-004 / B is blocked during A then answers stay paired after retry
+ ✓ query_recovery.test.tsx > TC-VQ-003 / timeout ends polling, preserves history and permits successful retry
+
+ Test Files  2 passed (2)
+      Tests  10 passed (10)
+   Start at  20:58:22
+   Duration  5.58s (transform 154ms, setup 816ms, collect 25ms, tests 116ms, environment 3.66s, prepare 572ms)
+
+JSON report written to D:/Code/text/test-videorag/Vimo-desktop/test_video_query/results/2026-09-21T12-58-18-377183Z-29448/vitest.json

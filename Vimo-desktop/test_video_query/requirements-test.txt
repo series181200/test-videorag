@@ -1,0 +1,7 @@
+pytest>=7.4,<9
+Flask>=3,<4
+Flask-Cors>=4,<7
+numpy>=1.26,<3
+requests>=2.31,<3
+psutil>=5.9,<8
+certifi
