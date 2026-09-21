@@ -14,3 +14,27 @@ log.txt
 
 .pptx_output
 .pptx_work
+
+
+# git clone https://github.com/series181200/test-videorag.git
+# cd test-videorag
+
+# git config user.name "你的姓名"
+# git config user.email "你的GitHub验证邮箱"
+
+
+# # 每次开始开发前
+
+# git pull --rebase origin main
+
+
+# # 修改代码...
+
+
+# # 修改完成后
+
+# git status
+# git add .
+# git commit -m "feat: 描述你完成的功能"
+# git push origin main
+# git pull --rebase origin main
